@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 
 import { createFrontendUrl } from '../../utils/api';
 import AboutMe from './AboutMe';
+import Events from './Events';
 import Friends from './Friends';
 import Library from './Library';
 import ProfileBadge from './ProfileBadge';
@@ -108,6 +109,7 @@ export default function Profile() {
         <AboutMe />
         <RecentActivity />
         <Friends />
+        <Events />
       </div>
     </ProfileContext.Provider>
   );

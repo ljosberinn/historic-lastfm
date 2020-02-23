@@ -173,7 +173,7 @@ export default function Footer() {
         <div id="cbsi_f">
           <form>
             <div>
-              <label className="rb_visit_txt" for="cbsi_footer_menu">
+              <label className="rb_visit_txt" htmlFor="cbsi_footer_menu">
                 Visit other Sites
               </label>
               <select

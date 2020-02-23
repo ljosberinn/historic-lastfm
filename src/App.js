@@ -4,13 +4,6 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import { Header, Footer } from './components';
 import { Profile } from './routes';
 
-function Artist() {
-  return null;
-}
-function Track() {
-  return null;
-}
-
 export default function App() {
   return (
     <>
@@ -31,8 +24,6 @@ export default function App() {
             <Switch>
               <Route path="/user/:name" component={Profile} />
               exact />
-              <Route path="/music/:artist" component={Artist} exact />
-              <Route path="/music/:artist/_/:track" component={Track} exact />
               <Route render={() => <Redirect to="/user/XHS207GA" />} />
             </Switch>
           </div>

@@ -14,7 +14,6 @@ export async function handler({ queryStringParameters: { name } }, context) {
   if (!name) {
     return {
       statusCode: FORBIDDEN,
-      body: JSON.stringify([]),
     };
   }
 
@@ -25,22 +24,23 @@ export async function handler({ queryStringParameters: { name } }, context) {
     };
   }
 
-  const endpoint = createBackendUrl('user.getrecenttracks', {
-    user: name,
-  });
+  const endpoint = createBackendUrl('user.getinfo', { user: name });
 
   try {
-    const { data } = await axios.get(endpoint);
+    const {
+      data: { user },
+    } = await axios.get(endpoint);
 
-    const body = JSON.stringify(
-      data.recenttracks.track.map(({ artist, image, date, name, mbid }) => ({
-        artist: artist['#text'],
-        timestamp: date.uts,
-        track: name,
-        img: image.find(({ size }) => size === 'small')['#text'],
-        id: mbid,
-      })),
-    );
+    const body = JSON.stringify({
+      country: user.country,
+      realName: user.realname,
+      registered: user.registered.unixtime,
+      totalPlayCount: user.playcount,
+      img: user.image.find(({ size }) => size === 'extralarge')['#text'],
+      subscriber: user.subscriber > 0,
+      playlists: user.playlists,
+      name: user.name,
+    });
 
     cache[name] = body;
 
@@ -56,7 +56,6 @@ export async function handler({ queryStringParameters: { name } }, context) {
       statusCode: error.message.includes(NOT_FOUND)
         ? NOT_FOUND
         : INTERNAL_SERVER_ERROR,
-      body: JSON.stringify([]),
     };
   }
 }

@@ -60,13 +60,6 @@ export default function Header() {
             id="headerLangToggle"
             className="icon toggle"
           >
-            <img
-              className="transparent_png globe_icon icon"
-              alt="Change language"
-              width="11"
-              height="11"
-              src="https://web.archive.org/web/20130605105804im_/http://cdn.last.fm/flatness/clear.gif"
-            />{' '}
             <span>English</span>
           </ExternalLink>{' '}
           | <ExternalLink href="http://last.fm/help">Help</ExternalLink>

@@ -85,6 +85,8 @@ export default function Profile() {
           topTracks,
           totalArtistAmount,
         ]) => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
           setProfile({
             recentTracks,
             lovedTracks,

@@ -25,6 +25,7 @@ function Avatar() {
           width="126"
           alt=""
           src={img || 'https://via.placeholder.com/126x248.png'}
+          style={{ objectFit: 'cover' }}
         />
       </span>{' '}
       {subscriber && (

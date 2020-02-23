@@ -1,12 +1,3 @@
-strong.sponsored {
-  display: block;
-  padding: 0 0 0 94px;
-  background: #c7e6fe;
-  font-size: 11px;
-  font-weight: bold;
-  line-height: 20px;
-}
-
 #userBadge {
   display: block;
   padding: 0 0 15px 130px;
@@ -25,89 +16,6 @@ strong.sponsored {
 #userBadge .badgeAvatar .userImage img {
   display: block; /* override */
   float: left;
-}
-
-#userBadge .badgeAvatar .userType {
-  display: block;
-  clear: both;
-  position: relative;
-  top: -7px;
-  font-size: 11px;
-  line-height: 0px;
-  vertical-align: normal;
-  font-weight: normal;
-  text-align: center;
-}
-
-#userBadge .badgeAvatar .userType span,
-#userBadge .badgeAvatar .userType a {
-  position: relative;
-  line-height: 13px;
-  padding: 1px 3px;
-  color: #fff !important;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-}
-
-#userBadge .badgeAvatar .userType a:hover {
-  text-decoration: none;
-}
-
-.staff .badgeAvatar .userType a {
-  background: #d51007 !important;
-}
-
-.alumni .badgeAvatar .userType span {
-  background: #5336bd !important;
-  color: #fff !important;
-}
-
-.moderator .badgeAvatar .userType a {
-  background: orange !important;
-}
-
-.subscriber .badgeAvatar .userType a {
-  background: #000 !important;
-}
-
-#userBadge .badgeAvatar .uploadImage {
-  position: relative;
-  display: block;
-  width: 130px;
-  height: 130px;
-  line-height: 0px;
-}
-
-#userBadge .badgeAvatar .uploadImage:hover {
-  text-decoration: none;
-}
-
-#userBadge .badgeAvatar .uploadImage span.cta {
-  position: absolute;
-  float: left;
-  display: block;
-  top: 107px;
-  left: 0px;
-  margin: 0 15px;
-  width: 100px;
-  text-align: center;
-  font-size: 11px;
-  line-height: 15px;
-}
-
-#userBadge .badgeAvatar .uploadImage:hover span.cta {
-  text-decoration: underline;
-}
-
-#userBadge .badgeHead {
-  padding: 5px 15px;
-  /*background: #eee;*/
-}
-
-#userBadge .badgeHead h1 {
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
 }
 
 #userBadge .badgeInfo {
@@ -158,10 +66,6 @@ strong.sponsored {
   display: none;
 }
 
-#userBadge .badgeInfo p.userActivity .highlight {
-  background: #fffcca;
-}
-
 #userBadge .badgeInfo small.userLastseen {
   display: block;
   font-size: 10px;
@@ -185,17 +89,6 @@ strong.sponsored {
   line-height: 12px;
   margin: 0 0 4px 0;
   width: 130px;
-}
-
-#page .friendIndicator {
-  color: #666;
-  font-size: 11px;
-  line-height: 12px;
-  font-weight: normal;
-}
-
-.friendIndicator .isfriend_icon {
-  margin: 0 5px 0 0;
 }
 
 /* hackx-overwrite-hackx */
@@ -236,18 +129,6 @@ strong.sponsored {
   display: inline;
 }
 
-#page .profileOptions ul.buttons .isFriend .lfmBefriendButton strong span,
-#page
-  .profileOptions
-  ul.buttons
-  .pendingIndicator
-  .lfmBefriendButton
-  strong
-  span {
-  font-size: 10px;
-  line-height: 10px;
-}
-
 #page .profileOptions ul.buttons .lfmBefriendButton:hover span {
   color: #0187c5;
   text-decoration: underline !important;
@@ -285,18 +166,8 @@ strong.sponsored {
   margin: 0 5px 0 0;
 }
 
-span.radioStation {
-  display: block;
-  margin: -7px 0 0 0;
-  font-size: 11px;
-}
-
 #recentTracks table {
   margin-bottom: 15px;
-}
-
-#recentTracks .scrobblesource {
-  padding-bottom: 10px;
 }
 
 div#aboutMe {
@@ -326,10 +197,6 @@ div#aboutMe {
   color: #000;
 }
 
-#taste .libraryInfo a.total:hover {
-  color: #0187c5;
-}
-
 #taste .libraryInfo span.rangetype {
   color: #666;
 }
@@ -340,27 +207,6 @@ div#aboutMe {
   height: 310px;
   clear: both;
   padding-top: 10px;
-}
-
-#taste ul.lessThanSeven {
-  height: auto;
-}
-
-#taste form {
-  text-align: right;
-  margin-bottom: 15px;
-}
-
-#taste form p {
-  margin: 0 0 0.545455em 0;
-  font-size: 11px;
-  line-height: 1.181818em;
-  text-align: left;
-}
-
-#taste .typeahead {
-  max-width: 542px;
-  margin: 0 0 0.545455em 0;
 }
 
 #tasteCocktail {
@@ -387,80 +233,4 @@ div#aboutMe {
 
 html:not([lang*='']) #taste .stationbutton .stationButtonWrapper {
   float: none;
-}
-
-.module .findmorefriends {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-
-.module .findmorefriends h3 {
-  margin-bottom: 2px;
-}
-
-.module .findmorefriends a.icon {
-  display: block;
-  border: 1px solid #ccc;
-  padding: 7px 8px 7px 8px;
-  margin-right: 10px;
-  float: left;
-}
-
-.module .findmorefriends a.icon:hover {
-  border-color: #0187c5;
-}
-
-.module .findmorefriends img {
-  float: left;
-}
-
-.module .findmorefriends h2 {
-  color: #000;
-}
-
-.restrictedLibrary {
-  width: 400px;
-  margin: 12em auto;
-}
-
-.messageBox.new-friend-request {
-  margin: 0;
-}
-
-.dropdown-btn-wrapper {
-  margin-bottom: 18px;
-}
-
-.labdisclaimer--tracksrefresh {
-  margin-top: 18px;
-}
-
-/**
- * friendconnection lab
- */
-
-.usersSmall.usersSmall--single-column li {
-  display: block;
-  overflow: hidden;
-  float: none;
-}
-
-.usersSmall.usersSmall--single-column li.first .photo,
-.usersSmall.usersSmall--single-column li.last .photo {
-  width: 17px;
-  height: 17px;
-}
-
-.usersSmall.usersSmall--single-column li.first div,
-.usersSmall.usersSmall--single-column li.last div {
-  padding-left: 31px;
-}
-
-.usersSmall.usersSmall--single-column li.first .userImage,
-.usersSmall.usersSmall--single-column li.last .userImage {
-  margin-left: -31px;
-}
-
-.lab-disclaimer-small--friendconnection {
-  margin-top: 3px;
 }

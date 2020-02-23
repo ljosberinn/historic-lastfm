@@ -62,6 +62,12 @@ function Info() {
         <strong className="fn">{realName}</strong>{' '}
         <span className="country-name">{country}</span>
         <br />
+        <ExternalLink
+          href="https://github.com/ljosberinn/historic-lastfm"
+          className="url homepage"
+        >
+          recreated by Gerrit Alex
+        </ExternalLink>
         <small className="userLastseen">
           Last seen: just now, here at least.
         </small>

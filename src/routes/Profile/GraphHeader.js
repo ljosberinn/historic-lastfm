@@ -20,7 +20,7 @@ export default function GraphHeader({ activeTimespan, handleChange }) {
               .join(' ')}
             key={chart}
           >
-            <a onClick={event => handleChange(event, data)}>{display}</a>
+            <span onClick={event => handleChange(event, data)}>{display}</span>
           </li>
         ))}
       </ul>

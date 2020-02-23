@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { ExternalLink } from '../../components';
 import { useProfile } from '../../hooks';
 import Graph from './Graph';
 import GraphHeader from './GraphHeader';
@@ -16,9 +17,9 @@ export default function TopTracks() {
   }
 
   return (
-    <div className="module modulecharts modulechartsartists">
-      <div id="switcher494146Buttons" className="moduleButtons">
-        <a className="mFeeds" href="#">
+    <div className="module">
+      <div className="moduleButtons">
+        <span>
           <img
             className="icon feed_small_icon"
             width="10"
@@ -27,14 +28,16 @@ export default function TopTracks() {
             src="https://web.archive.org/web/20130605105804im_/http://cdn.last.fm/flatness/clear.gif"
           />
           <span>Feeds</span>
-        </a>
+        </span>
       </div>
 
       <h2 className="heading">
         <span className="h2Wrapper">
-          <a href="/web/20130605105804/http://last.fm/user/XHS207GA/charts?subtype=artists">
+          <ExternalLink
+            href={`http://last.fm/user/${name}/charts?subtype=tracks`}
+          >
             Top Tracks
-          </a>
+          </ExternalLink>
         </span>
       </h2>
 

@@ -88,12 +88,6 @@ export default function RecentlyListenedTracks() {
         </span>
       </h2>{' '}
       <div id="recentTracksButtons" className="moduleButtons">
-        <span className="needs-to-be-lazylazyloaded">
-          <a href="#" className="js-lazylazyloading-refresh">
-            Refresh
-          </a>{' '}
-          |
-        </span>
         <ExternalLink
           href={`http://ws.audioscrobbler.com/1.0/user/${name}/recenttracks.rss`}
         >

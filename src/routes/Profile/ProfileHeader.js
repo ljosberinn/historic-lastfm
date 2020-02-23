@@ -50,9 +50,7 @@ export default function ProfileHeader() {
             })}
           </ul>
           <div className="drop-down-menu more">
-            <a href="#" className="menu-toggle">
-              More…
-            </a>
+            <span className="menu-toggle">More…</span>
             <ul className="hidden-menu"></ul>
           </div>
         </nav>

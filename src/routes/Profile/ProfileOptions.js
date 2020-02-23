@@ -77,7 +77,7 @@ function Tasteometer({ name }) {
       </span>
 
       <span className="moduleOptions" id="tasteometertoggle">
-        <a href="#">Compare your taste</a>
+        <span>Compare your taste</span>
       </span>
     </div>
   );

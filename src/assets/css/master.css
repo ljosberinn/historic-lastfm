@@ -11205,10 +11205,17 @@ div.tagBrowser div.wrapper {
   margin: 0 3px 0 0;
   padding: 0 2px 0 5px;
 }
-.horizontalOptions ul li a {
+.horizontalOptions ul li a,
+.horizontalOptions ul li span {
   color: #0187c5;
   text-decoration: none;
+  cursor: pointer;
 }
+
+.horizontalOptions ul li span:hover {
+  text-decoration: underline;
+}
+
 .horizontalOptions ul li a span,
 .horizontalOptions ul li a strong {
   float: none;

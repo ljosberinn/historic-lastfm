@@ -70,11 +70,8 @@ export default function Library() {
           </span>
         </ExternalLink>
 
-        <ul
-          className=" libraryItems artistsLarge
-    "
-        >
-          {topArtists.map(data => (
+        <ul className="libraryItems artistsLarge">
+          {topArtists.overall.map(data => (
             <LibraryItem userName={name} {...data} key={data.name} />
           ))}
         </ul>

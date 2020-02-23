@@ -24,29 +24,49 @@ export async function handler({ queryStringParameters: { name } }, context) {
     };
   }
 
-  const endpoint = createBackendUrl('user.gettopartists', {
-    user: name,
-    limit: 8,
-  });
+  const body = {
+    overall: [],
+    '7day': [],
+    '1month': [],
+    '3month': [],
+    '6month': [],
+    '12month': [],
+  };
 
   try {
-    const {
-      data: { topartists },
-    } = await axios.get(endpoint);
+    await Promise.all(
+      Object.keys(body).map(async period => {
+        const endpoint = createBackendUrl('user.gettopartists', {
+          user: name,
+          limit: 10,
+          period,
+        });
 
-    const body = JSON.stringify(
-      topartists.artist.map(({ name, image, playcount }) => ({
-        name,
-        img: image.find(({ size }) => size === 'large')['#text'],
-        playCount: playcount,
-      })),
+        try {
+          const {
+            data: { topartists },
+          } = await axios.get(endpoint);
+
+          body[period] = topartists.artist.map(
+            ({ name, image, playcount }) => ({
+              name,
+              img: image.find(({ size }) => size === 'large')['#text'],
+              playCount: playcount,
+            }),
+          );
+        } catch (error) {
+          // ignore the error, fallback defined in body will be fine
+        }
+      }),
     );
 
-    cache[name] = body;
+    const json = JSON.stringify(body);
+
+    cache[name] = json;
 
     return {
       statusCode: OK,
-      body,
+      body: json,
     };
   } catch (error) {
     return {

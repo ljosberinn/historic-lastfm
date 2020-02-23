@@ -12,6 +12,7 @@ import ProfileHeader from './ProfileHeader';
 import ProfileOptions from './ProfileOptions';
 import RecentActivity from './RecentActivity';
 import RecentlyListenedTracks from './RecentlyListenedTracks';
+import TopArtists from './TopArtists';
 
 export const ProfileContext = createContext(null);
 
@@ -28,7 +29,14 @@ const initialState = {
   img: undefined,
   subscriber: false,
   playlists: undefined,
-  topArtists: [],
+  topArtists: {
+    overall: [],
+    '7days': [],
+    '1month': [],
+    '3month': [],
+    '6month': [],
+    '12month': [],
+  },
   friends: [],
 };
 
@@ -62,6 +70,10 @@ export default function Profile() {
       .catch(console.error);
   }, [name]);
 
+  if (!profile.name) {
+    return null;
+  }
+
   return (
     <ProfileContext.Provider value={profile}>
       <ProfileHeader />
@@ -71,6 +83,7 @@ export default function Profile() {
           <ProfileOptions />
           <RecentlyListenedTracks />
           <Library />
+          <TopArtists />
         </div>
       </div>
       <div className="mpuTop rightCol">

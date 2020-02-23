@@ -37,11 +37,11 @@ export default function Profile() {
 
   useEffect(() => {
     Promise.all([
-      fetch(createFrontendUrl('user.getInfo', { name })),
-      fetch(createFrontendUrl('user.getRecentTracks', { name })),
-      fetch(createFrontendUrl('user.getLovedTracks', { name })),
-      fetch(createFrontendUrl('user.getFriends', { name })),
-      fetch(createFrontendUrl('user.getTopArtists', { name })),
+      fetch(createFrontendUrl('getInfo', { name })),
+      fetch(createFrontendUrl('getRecentTracks', { name })),
+      fetch(createFrontendUrl('getLovedTracks', { name })),
+      fetch(createFrontendUrl('getFriends', { name })),
+      fetch(createFrontendUrl('getTopArtists', { name })),
     ])
 
       .then(responses =>

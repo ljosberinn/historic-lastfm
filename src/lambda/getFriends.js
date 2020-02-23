@@ -6,11 +6,12 @@ import {
   OK,
   INTERNAL_SERVER_ERROR,
   NOT_FOUND,
+  BAD_REQUEST,
 } from '../utils/statusCodes';
 
 const cache = {};
 
-export async function handler({ queryStringParameters: { name } }, context) {
+export async function handler({ queryStringParameters: { name } }) {
   if (!name) {
     return {
       statusCode: FORBIDDEN,
@@ -53,7 +54,13 @@ export async function handler({ queryStringParameters: { name } }, context) {
       },
     };
   } catch (error) {
-    console.log(error.message);
+    if (error.message.includes(BAD_REQUEST)) {
+      return {
+        statusCode: OK,
+        body: JSON.stringify([]),
+      };
+    }
+
     return {
       statusCode: error.message.includes(NOT_FOUND)
         ? NOT_FOUND

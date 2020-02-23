@@ -8,7 +8,7 @@ export default function App() {
   return (
     <>
       <div id="fauxHeaderContainer" className="clearit">
-        <div id="fauxHeader"></div>
+        <div id="fauxHeader" />
       </div>
 
       <div id="page">

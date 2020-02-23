@@ -4,6 +4,7 @@ import React, { useState, useEffect, createContext } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { createFrontendUrl } from '../../utils/api';
+import AboutMe from './AboutMe';
 import Friends from './Friends';
 import Library from './Library';
 import ProfileBadge from './ProfileBadge';
@@ -67,12 +68,12 @@ export default function Profile() {
         <div className="leftColWrapper">
           <ProfileBadge />
           <ProfileOptions />
-
           <RecentlyListenedTracks />
           <Library />
         </div>
       </div>
       <div className="mpuTop rightCol">
+        <AboutMe />
         <Friends />
       </div>
     </ProfileContext.Provider>

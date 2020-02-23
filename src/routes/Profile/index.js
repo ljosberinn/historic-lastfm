@@ -12,6 +12,7 @@ import ProfileHeader from './ProfileHeader';
 import ProfileOptions from './ProfileOptions';
 import RecentActivity from './RecentActivity';
 import RecentlyListenedTracks from './RecentlyListenedTracks';
+import Shoutbox from './Shoutbox';
 import TopArtists from './TopArtists';
 import TopTracks from './TopTracks';
 
@@ -100,6 +101,7 @@ export default function Profile() {
           <Library />
           <TopArtists />
           <TopTracks />
+          <Shoutbox />
         </div>
       </div>
       <div className="mpuTop rightCol">

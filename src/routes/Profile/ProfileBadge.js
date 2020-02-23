@@ -111,7 +111,7 @@ function Info() {
                 height="11"
                 alt=""
               />
-              <span>{Math.ceil(Math.random() * 100)} shouts</span>
+              <span>1 shout</span>
             </a>
           </span>
         </p>

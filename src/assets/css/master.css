@@ -680,10 +680,6 @@ div.sic #content .leftColumn .wrapper,
   vertical-align: top;
 }
 
-x
-
-/** Search */
-
 #siteSearch {
   position: absolute;
   top: 46px;
@@ -726,7 +722,6 @@ x
   cursor: pointer;
 }
 
-x
 /** Header Promo */
 
 #headerPromo {
@@ -1000,7 +995,7 @@ a.lfmSmallMultiButton span {
   z-index: -1;
 }
 
-x a.icon:hover {
+a.icon:hover {
   text-decoration: none !important;
 }
 a.icon:hover span,

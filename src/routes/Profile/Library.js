@@ -37,7 +37,11 @@ function LibraryItem({ name, img, playCount, userName }) {
 }
 
 export default function Library() {
-  const { name, topArtists, lovedTracks } = useProfile();
+  const { name, topArtists, lovedTracks, totalArtistAmount } = useProfile();
+
+  const formattedArtistAmount = new Intl.NumberFormat(
+    window.navigator.language || 'de',
+  ).format(parseInt(totalArtistAmount));
 
   return (
     <div id="taste" className="clearit module modulelibrary">
@@ -55,7 +59,7 @@ export default function Library() {
             href={`http://last.fm/user/${name}/library`}
             className="total"
           >
-            1,687 Artists in total
+            {formattedArtistAmount} Artists in total
           </ExternalLink>
           <br /> <span className="rangetype">Showing: Custom selection</span>{' '}
         </p>

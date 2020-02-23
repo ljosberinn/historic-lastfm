@@ -50,6 +50,7 @@ const initialState = {
   img: undefined,
   subscriber: false,
   playlists: undefined,
+  totalArtistAmount: 0,
 };
 
 export default function Profile() {
@@ -67,6 +68,7 @@ export default function Profile() {
       fetch(createFrontendUrl('getFriends', fields)),
       fetch(createFrontendUrl('getTopArtists', fields)),
       fetch(createFrontendUrl('getTopTracks', fields)),
+      fetch(createFrontendUrl('getLibrary', fields)),
     ])
 
       .then(responses =>
@@ -74,13 +76,22 @@ export default function Profile() {
       )
 
       .then(
-        ([info, recentTracks, lovedTracks, friends, topArtists, topTracks]) => {
+        ([
+          info,
+          recentTracks,
+          lovedTracks,
+          friends,
+          topArtists,
+          topTracks,
+          totalArtistAmount,
+        ]) => {
           setProfile({
             recentTracks,
             lovedTracks,
             friends,
             topArtists,
             topTracks,
+            ...totalArtistAmount,
             ...info,
           });
         },

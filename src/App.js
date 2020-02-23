@@ -1,5 +1,44 @@
 import React from 'react';
+import { Route, Redirect, Switch } from 'react-router-dom';
+
+import { Header, Footer } from './components';
+import { Profile } from './routes';
+
+function Artist() {
+  return null;
+}
+function Track() {
+  return null;
+}
 
 export default function App() {
-  return null;
+  return (
+    <>
+      <div id="fauxHeaderContainer" className="clearit">
+        <div id="fauxHeader"></div>
+      </div>
+
+      <div id="page">
+        <div className="fiflufi">
+          <Header />
+          <div
+            id="LastAd_leaderboard"
+            className="LastAd ad-leaderboard inactive"
+          >
+            <span />
+          </div>
+          <div id="content">
+            <Switch>
+              <Route path="/user/:name" component={Profile} />
+              exact />
+              <Route path="/music/:artist" component={Artist} exact />
+              <Route path="/music/:artist/_/:track" component={Track} exact />
+              <Route render={() => <Redirect to="/user/XHS207GA" />} />
+            </Switch>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
 }

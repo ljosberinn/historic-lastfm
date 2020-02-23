@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import ExternalLink from './ExternalLink';
 
@@ -12,6 +13,28 @@ const navElements = [
 ];
 
 export default function Header() {
+  const { push } = useHistory();
+
+  const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    setLoading(true);
+
+    push(`/user/${search}`);
+
+    setTimeout(() => {
+      setLoading(false);
+      setSearch('');
+    }, 2000);
+  }
+
+  function handleChange({ target: { value } }) {
+    setSearch(value);
+  }
+
   return (
     <div id="header" className="clearit responsive-container" role="banner">
       <div id="headerWrapper">
@@ -67,10 +90,9 @@ export default function Header() {
 
         <form
           id="siteSearch"
-          method="get"
-          action="http://last.fm/search"
           className="search-autocomplete"
           role="search"
+          onSubmit={handleSubmit}
         >
           <input
             id="siteSearchBox"
@@ -78,24 +100,26 @@ export default function Header() {
             name="q"
             autoCorrect="off"
             autoComplete="off"
-            placeholder="Music search"
+            placeholder="Profile search"
             size="26"
             className="js-search"
+            onChange={handleChange}
+            value={search}
+            disabled={loading}
           />
           <div
             id="siteSearchProgress"
             className="js-search-progress search-progress ir"
-            style={{ display: 'none' }}
+            style={{ display: loading ? 'block' : 'none' }}
           >
             Loading
           </div>
-          <input type="hidden" name="from" value="ac" />
           <button
             id="siteSearchSubmit"
             type="submit"
             className="submit"
             title="Search"
-          ></button>
+          />
         </form>
         <div id="headerPromo">
           <ExternalLink href="http://last.fm/about/jobs">

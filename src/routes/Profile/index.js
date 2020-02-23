@@ -7,6 +7,7 @@ import { createFrontendUrl } from '../../utils/api';
 import AboutMe from './AboutMe';
 import Events from './Events';
 import Friends from './Friends';
+import Groups from './Groups';
 import Library from './Library';
 import ProfileBadge from './ProfileBadge';
 import ProfileHeader from './ProfileHeader';
@@ -110,6 +111,7 @@ export default function Profile() {
         <RecentActivity />
         <Friends />
         <Events />
+        <Groups />
       </div>
     </ProfileContext.Provider>
   );

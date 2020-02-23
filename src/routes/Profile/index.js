@@ -13,22 +13,16 @@ import ProfileOptions from './ProfileOptions';
 import RecentActivity from './RecentActivity';
 import RecentlyListenedTracks from './RecentlyListenedTracks';
 import TopArtists from './TopArtists';
+import TopTracks from './TopTracks';
 
 export const ProfileContext = createContext(null);
 
 dayjs.extend(relativeTime);
 
 const initialState = {
-  name: undefined,
   recentTracks: [],
   lovedTracks: [],
-  country: undefined,
-  realName: undefined,
-  registered: undefined,
-  totalPlayCount: undefined,
-  img: undefined,
-  subscriber: false,
-  playlists: undefined,
+  friends: [],
   topArtists: {
     overall: [],
     '7days': [],
@@ -37,7 +31,22 @@ const initialState = {
     '6month': [],
     '12month': [],
   },
-  friends: [],
+  topTracks: {
+    overall: [],
+    '7days': [],
+    '1month': [],
+    '3month': [],
+    '6month': [],
+    '12month': [],
+  },
+  name: undefined,
+  country: undefined,
+  realName: undefined,
+  registered: undefined,
+  totalPlayCount: undefined,
+  img: undefined,
+  subscriber: false,
+  playlists: undefined,
 };
 
 export default function Profile() {
@@ -46,27 +55,33 @@ export default function Profile() {
   const [profile, setProfile] = useState(initialState);
 
   useEffect(() => {
+    const fields = { name };
+
     Promise.all([
-      fetch(createFrontendUrl('getInfo', { name })),
-      fetch(createFrontendUrl('getRecentTracks', { name })),
-      fetch(createFrontendUrl('getLovedTracks', { name })),
-      fetch(createFrontendUrl('getFriends', { name })),
-      fetch(createFrontendUrl('getTopArtists', { name })),
+      fetch(createFrontendUrl('getInfo', fields)),
+      fetch(createFrontendUrl('getRecentTracks', fields)),
+      fetch(createFrontendUrl('getLovedTracks', fields)),
+      fetch(createFrontendUrl('getFriends', fields)),
+      fetch(createFrontendUrl('getTopArtists', fields)),
+      fetch(createFrontendUrl('getTopTracks', fields)),
     ])
 
       .then(responses =>
         Promise.all(responses.map(response => response.json())),
       )
 
-      .then(([info, recentTracks, lovedTracks, friends, topArtists]) => {
-        setProfile({
-          recentTracks,
-          lovedTracks,
-          friends,
-          topArtists,
-          ...info,
-        });
-      })
+      .then(
+        ([info, recentTracks, lovedTracks, friends, topArtists, topTracks]) => {
+          setProfile({
+            recentTracks,
+            lovedTracks,
+            friends,
+            topArtists,
+            topTracks,
+            ...info,
+          });
+        },
+      )
       .catch(console.error);
   }, [name]);
 
@@ -84,6 +99,7 @@ export default function Profile() {
           <RecentlyListenedTracks />
           <Library />
           <TopArtists />
+          <TopTracks />
         </div>
       </div>
       <div className="mpuTop rightCol">

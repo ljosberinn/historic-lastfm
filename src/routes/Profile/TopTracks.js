@@ -5,8 +5,9 @@ import Graph from './Graph';
 import GraphHeader from './GraphHeader';
 import GraphRow from './GraphRow';
 
-export default function TopArtists() {
-  const { topArtists, name } = useProfile();
+export default function TopTracks() {
+  const { topTracks, name, lovedTracks } = useProfile();
+
   const [activeTimespan, setActiveTimespan] = useState('overall');
 
   function handleChange(event, timespan) {
@@ -32,7 +33,7 @@ export default function TopArtists() {
       <h2 className="heading">
         <span className="h2Wrapper">
           <a href="/web/20130605105804/http://last.fm/user/XHS207GA/charts?subtype=artists">
-            Top Artists
+            Top Tracks
           </a>
         </span>
       </h2>
@@ -43,15 +44,19 @@ export default function TopArtists() {
       />
 
       <Graph>
-        {topArtists[activeTimespan].map(
-          ({ playCount, name: artist }, index) => (
+        {topTracks[activeTimespan].map(
+          ({ playCount, artist, track }, index) => (
             <GraphRow
               index={index}
-              relativeTo={topArtists[activeTimespan][0].playCount}
+              relativeTo={topTracks[activeTimespan][0].playCount}
               playCount={playCount}
               artist={artist}
               name={name}
-              key={artist}
+              track={track}
+              isLoved={lovedTracks.find(
+                dataset => dataset.artist === artist && dataset.track === track,
+              )}
+              key={track}
             />
           ),
         )}

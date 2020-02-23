@@ -21,11 +21,12 @@ const timeOfDay = hour => {
   return 'night';
 };
 
-function Activity({ type, name, timestamp, artist, track }) {
+function Activity({ type, name, timestamp, artist, track, isLast }) {
   const liClasses = [
     'clearit',
     type === 'lovedTrack' && 'loved',
     type === 'profileUpdated' && 'profileupdated',
+    isLast && 'last',
   ]
     .filter(Boolean)
     .join(' ');
@@ -89,11 +90,12 @@ export default function RecentActivity() {
               name={name}
               timestamp={Date.now()}
             />
-            {last9LovedTracks.map(track => (
+            {last9LovedTracks.map((track, index) => (
               <Activity
                 type="lovedTrack"
                 {...track}
                 name={name}
+                isLast={index + 1 === last9LovedTracks.length}
                 key={track.timestamp}
               />
             ))}

@@ -5,7 +5,7 @@ import { useProfile } from '../../hooks';
 
 function Group({ name, img, members }) {
   return (
-    <li className="clearit">
+    <li className="clearit last">
       <ExternalLink href={`http://last.fm/group/${name}`}>
         <strong>
           <span className="groupImg">

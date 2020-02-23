@@ -10,6 +10,7 @@ import Library from './Library';
 import ProfileBadge from './ProfileBadge';
 import ProfileHeader from './ProfileHeader';
 import ProfileOptions from './ProfileOptions';
+import RecentActivity from './RecentActivity';
 import RecentlyListenedTracks from './RecentlyListenedTracks';
 
 export const ProfileContext = createContext(null);
@@ -74,6 +75,7 @@ export default function Profile() {
       </div>
       <div className="mpuTop rightCol">
         <AboutMe />
+        <RecentActivity />
         <Friends />
       </div>
     </ProfileContext.Provider>

@@ -50,7 +50,7 @@ function Activity({ type, name, timestamp, artist, track }) {
     return (
       <li className={liClasses}>
         <img
-          class="icon act_loved_icon"
+          className="icon act_loved_icon"
           width="20"
           height="20"
           alt=""
@@ -79,7 +79,7 @@ export default function RecentActivity() {
   return (
     <>
       <h2 className="heading">
-        <span class="h2Wrapper">Recent Activity</span>
+        <span className="h2Wrapper">Recent Activity</span>
       </h2>
       <ul className="minifeedSmall">
         {name && (

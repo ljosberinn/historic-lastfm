@@ -9,7 +9,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
-    "dayjs": "^1.8.20",
+    "dayjs": "^1.8.21",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-helmet": "^5.2.1",

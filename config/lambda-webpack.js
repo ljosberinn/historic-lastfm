@@ -1,6 +1,11 @@
 const DotEnv = require('dotenv-webpack');
 
+const isProduction = process.env.NODE_ENV === 'production' || !!process.env.NETLIFY;
+
 module.exports = {
-  mode: process.env.NODE_ENV,
+  mode: isProduction ? 'production' : 'development',
   plugins: [new DotEnv()],
+  optimization: {
+    minimize: isProduction,
+  },
 };

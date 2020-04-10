@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import ExternalLink from '../../components/ExternalLink';
 import { useProfile } from '../../hooks';
@@ -17,7 +17,7 @@ const navElements = [
   'library/tags',
 ];
 
-const upperCaseFirstCharacter = str =>
+const upperCaseFirstCharacter = (str) =>
   str.charAt(0).toUpperCase() + str.substr(1);
 
 export default function ProfileHeader() {

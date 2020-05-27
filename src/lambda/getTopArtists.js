@@ -19,27 +19,27 @@ export async function handler({ queryStringParameters: { name } }, context) {
 
   if (cache[name]) {
     return {
-      statusCode: OK,
       body: cache[name],
+      statusCode: OK,
     };
   }
 
   const body = {
-    overall: [],
-    '7day': [],
+    '12month': [],
     '1month': [],
     '3month': [],
     '6month': [],
-    '12month': [],
+    '7day': [],
+    overall: [],
   };
 
   try {
     await Promise.all(
       Object.keys(body).map(async period => {
         const endpoint = createBackendUrl('user.gettopartists', {
-          user: name,
           limit: 10,
           period,
+          user: name,
         });
 
         try {
@@ -49,15 +49,15 @@ export async function handler({ queryStringParameters: { name } }, context) {
 
           body[period] = topartists.artist.map(
             ({ name, image, playcount }) => ({
-              name,
               img: image.find(({ size }) => size === 'large')['#text'],
+              name,
               playCount: playcount,
-            }),
+            })
           );
         } catch (error) {
           // ignore the error, fallback defined in body will be fine
         }
-      }),
+      })
     );
 
     const json = JSON.stringify(body);
@@ -65,8 +65,8 @@ export async function handler({ queryStringParameters: { name } }, context) {
     cache[name] = json;
 
     return {
-      statusCode: OK,
       body: json,
+      statusCode: OK,
     };
   } catch (error) {
     return {

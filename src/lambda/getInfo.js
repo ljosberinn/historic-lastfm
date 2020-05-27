@@ -19,8 +19,8 @@ export async function handler({ queryStringParameters: { name } }, context) {
 
   if (cache[name]) {
     return {
-      statusCode: OK,
       body: cache[name],
+      statusCode: OK,
     };
   }
 
@@ -33,23 +33,23 @@ export async function handler({ queryStringParameters: { name } }, context) {
 
     const body = JSON.stringify({
       country: user.country,
+      img: user.image.find(({ size }) => size === 'extralarge')['#text'],
+      name: user.name,
+      playlists: user.playlists,
       realName: user.realname,
       registered: user.registered.unixtime,
-      totalPlayCount: user.playcount,
-      img: user.image.find(({ size }) => size === 'extralarge')['#text'],
       subscriber: user.subscriber > 0,
-      playlists: user.playlists,
-      name: user.name,
+      totalPlayCount: user.playcount,
     });
 
     cache[name] = body;
 
     return {
-      statusCode: OK,
       body,
       headers: {
         ContentType: 'application/json',
       },
+      statusCode: OK,
     };
   } catch (error) {
     return {

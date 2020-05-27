@@ -40,7 +40,7 @@ export default function Library() {
   const { name, topArtists, lovedTracks, totalArtistAmount } = useProfile();
 
   const formattedArtistAmount = new Intl.NumberFormat(
-    window.navigator.language || 'de',
+    window.navigator.language || 'de'
   ).format(parseInt(totalArtistAmount));
 
   return (

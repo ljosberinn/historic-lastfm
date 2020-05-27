@@ -12,7 +12,9 @@ export default function Graph({ children }) {
         <tbody>{children}</tbody>
       </table>
       <div className="moduleOptions">
-        <ExternalLink href={`http://last.fm/user/${name}/charts?rangetype=3month&amp;subtype=artists`}>
+        <ExternalLink
+          href={`http://last.fm/user/${name}/charts?rangetype=3month&amp;subtype=artists`}
+        >
           See more
         </ExternalLink>
       </div>

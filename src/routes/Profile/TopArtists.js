@@ -56,7 +56,7 @@ export default function TopArtists() {
               name={name}
               key={artist}
             />
-          ),
+          )
         )}
       </Graph>
     </div>

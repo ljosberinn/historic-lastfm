@@ -4,9 +4,9 @@ export const createBackendUrl = (method, fields = {}) =>
   [
     'http://ws.audioscrobbler.com/2.0/',
     new URLSearchParams({
-      method,
       api_key: key,
       format: 'json',
+      method,
       ...fields,
     }).toString(),
   ].join('?');

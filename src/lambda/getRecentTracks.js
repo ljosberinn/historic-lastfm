@@ -13,15 +13,15 @@ const cache = {};
 export async function handler({ queryStringParameters: { name } }, context) {
   if (!name) {
     return {
-      statusCode: FORBIDDEN,
       body: JSON.stringify([]),
+      statusCode: FORBIDDEN,
     };
   }
 
   if (cache[name]) {
     return {
-      statusCode: OK,
       body: cache[name],
+      statusCode: OK,
     };
   }
 
@@ -35,28 +35,28 @@ export async function handler({ queryStringParameters: { name } }, context) {
     const body = JSON.stringify(
       data.recenttracks.track.map(({ artist, image, date, name, mbid }) => ({
         artist: artist['#text'],
+        id: mbid,
+        img: image.find(({ size }) => size === 'small')['#text'],
         timestamp: date.uts,
         track: name,
-        img: image.find(({ size }) => size === 'small')['#text'],
-        id: mbid,
-      })),
+      }))
     );
 
     cache[name] = body;
 
     return {
-      statusCode: OK,
       body,
       headers: {
         ContentType: 'application/json',
       },
+      statusCode: OK,
     };
   } catch (error) {
     return {
+      body: JSON.stringify([]),
       statusCode: error.message.includes(NOT_FOUND)
         ? NOT_FOUND
         : INTERNAL_SERVER_ERROR,
-      body: JSON.stringify([]),
     };
   }
 }

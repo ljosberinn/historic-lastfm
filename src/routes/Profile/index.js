@@ -23,34 +23,34 @@ export const ProfileContext = createContext(null);
 dayjs.extend(relativeTime);
 
 const initialState = {
-  recentTracks: [],
-  lovedTracks: [],
+  country: undefined,
   friends: [],
+  img: undefined,
+  lovedTracks: [],
+  name: undefined,
+  playlists: undefined,
+  realName: undefined,
+  recentTracks: [],
+  registered: undefined,
+  subscriber: false,
   topArtists: {
-    overall: [],
-    '7days': [],
+    '12month': [],
     '1month': [],
     '3month': [],
     '6month': [],
-    '12month': [],
+    '7days': [],
+    overall: [],
   },
   topTracks: {
-    overall: [],
-    '7days': [],
+    '12month': [],
     '1month': [],
     '3month': [],
     '6month': [],
-    '12month': [],
+    '7days': [],
+    overall: [],
   },
-  name: undefined,
-  country: undefined,
-  realName: undefined,
-  registered: undefined,
-  totalPlayCount: undefined,
-  img: undefined,
-  subscriber: false,
-  playlists: undefined,
   totalArtistAmount: 0,
+  totalPlayCount: undefined,
 };
 
 export default function Profile() {
@@ -72,7 +72,7 @@ export default function Profile() {
     ])
 
       .then(responses =>
-        Promise.all(responses.map(response => response.json())),
+        Promise.all(responses.map(response => response.json()))
       )
 
       .then(
@@ -85,18 +85,18 @@ export default function Profile() {
           topTracks,
           totalArtistAmount,
         ]) => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.scrollTo({ behavior: 'smooth', top: 0 });
 
           setProfile({
-            recentTracks,
-            lovedTracks,
             friends,
+            lovedTracks,
+            recentTracks,
             topArtists,
             topTracks,
             ...totalArtistAmount,
             ...info,
           });
-        },
+        }
       )
       .catch(console.error);
   }, [name]);

@@ -57,11 +57,11 @@ export default function TopTracks() {
               name={name}
               track={track}
               isLoved={lovedTracks.find(
-                dataset => dataset.artist === artist && dataset.track === track,
+                dataset => dataset.artist === artist && dataset.track === track
               )}
               key={track}
             />
-          ),
+          )
         )}
       </Graph>
     </div>

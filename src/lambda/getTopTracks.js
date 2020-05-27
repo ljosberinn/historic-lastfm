@@ -19,27 +19,27 @@ export async function handler({ queryStringParameters: { name } }, context) {
 
   if (cache[name]) {
     return {
-      statusCode: OK,
       body: cache[name],
+      statusCode: OK,
     };
   }
 
   const body = {
-    overall: [],
-    '7day': [],
+    '12month': [],
     '1month': [],
     '3month': [],
     '6month': [],
-    '12month': [],
+    '7day': [],
+    overall: [],
   };
 
   try {
     await Promise.all(
       Object.keys(body).map(async period => {
         const endpoint = createBackendUrl('user.gettoptracks', {
-          user: name,
           limit: 15,
           period,
+          user: name,
         });
 
         try {
@@ -50,14 +50,14 @@ export async function handler({ queryStringParameters: { name } }, context) {
           body[period] = toptracks.track.map(({ artist, name, playcount }) => {
             return {
               artist: artist.name,
-              track: name,
               playCount: playcount,
+              track: name,
             };
           });
         } catch (error) {
           // ignore the error, fallback defined in body will be fine
         }
-      }),
+      })
     );
 
     const json = JSON.stringify(body);
@@ -65,8 +65,8 @@ export async function handler({ queryStringParameters: { name } }, context) {
     cache[name] = json;
 
     return {
-      statusCode: OK,
       body: json,
+      statusCode: OK,
     };
   } catch (error) {
     return {

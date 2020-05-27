@@ -17,7 +17,7 @@ const navElements = [
   'library/tags',
 ];
 
-const upperCaseFirstCharacter = (str) =>
+const upperCaseFirstCharacter = str =>
   str.charAt(0).toUpperCase() + str.substr(1);
 
 export default function ProfileHeader() {
@@ -37,7 +37,7 @@ export default function ProfileHeader() {
           <ul className="visible-menu">
             {navElements.map((url, index) => {
               const title = upperCaseFirstCharacter(
-                url.includes('/') ? url.split('/')[1] : url,
+                url.includes('/') ? url.split('/')[1] : url
               );
 
               return (

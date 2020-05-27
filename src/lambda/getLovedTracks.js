@@ -19,14 +19,14 @@ export async function handler({ queryStringParameters: { name } }, context) {
 
   if (cache[name]) {
     return {
-      statusCode: OK,
       body: cache[name],
+      statusCode: OK,
     };
   }
 
   const endpoint = createBackendUrl('user.getlovedtracks', {
-    user: name,
     limit: 200,
+    user: name,
   });
 
   try {
@@ -35,21 +35,21 @@ export async function handler({ queryStringParameters: { name } }, context) {
     const body = JSON.stringify(
       data.lovedtracks.track.map(({ artist, image, date, name, mbid }) => ({
         artist: artist.name,
+        id: mbid,
+        img: image.find(({ size }) => size === 'small')['#text'],
         timestamp: date.uts,
         track: name,
-        img: image.find(({ size }) => size === 'small')['#text'],
-        id: mbid,
-      })),
+      }))
     );
 
     cache[name] = body;
 
     return {
-      statusCode: OK,
       body,
       headers: {
         ContentType: 'application/json',
       },
+      statusCode: OK,
     };
   } catch (error) {
     return {

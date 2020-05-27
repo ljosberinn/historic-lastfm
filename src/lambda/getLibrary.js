@@ -19,14 +19,14 @@ export async function handler({ queryStringParameters: { name } }, context) {
 
   if (cache[name]) {
     return {
-      statusCode: OK,
       body: cache[name],
+      statusCode: OK,
     };
   }
 
   const endpoint = createBackendUrl('library.getArtists', {
-    user: name,
     limit: 1,
+    user: name,
   });
 
   try {
@@ -39,11 +39,11 @@ export async function handler({ queryStringParameters: { name } }, context) {
     cache[name] = body;
 
     return {
-      statusCode: OK,
       body,
       headers: {
         ContentType: 'application/json',
       },
+      statusCode: OK,
     };
   } catch (error) {
     console.log(error);

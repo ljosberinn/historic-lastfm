@@ -20,14 +20,14 @@ export async function handler({ queryStringParameters: { name } }) {
 
   if (cache[name]) {
     return {
-      statusCode: OK,
       body: cache[name],
+      statusCode: OK,
     };
   }
 
   const endpoint = createBackendUrl('user.getfriends', {
-    user: name,
     limit: 200,
+    user: name,
   });
 
   try {
@@ -37,27 +37,27 @@ export async function handler({ queryStringParameters: { name } }) {
 
     const body = JSON.stringify(
       friends.user.map(({ name, image, country, subscriber }) => ({
-        name,
-        img: image.find(({ size }) => size === 'small')['#text'],
         country,
+        img: image.find(({ size }) => size === 'small')['#text'],
+        name,
         subscriber,
-      })),
+      }))
     );
 
     cache[name] = body;
 
     return {
-      statusCode: OK,
       body,
       headers: {
         ContentType: 'application/json',
       },
+      statusCode: OK,
     };
   } catch (error) {
     if (error.message.includes(BAD_REQUEST)) {
       return {
-        statusCode: OK,
         body: JSON.stringify([]),
+        statusCode: OK,
       };
     }
 

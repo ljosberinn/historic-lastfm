@@ -3,46 +3,46 @@ import React from 'react';
 import ExternalLink from './ExternalLink';
 
 const legalLinks = [
-  { url: 'last.fm/about', title: 'About' },
-  { url: 'blog.last.fm', title: 'Blog' },
-  { url: 'last.fm/about/contact', title: 'Contact us' },
-  { url: 'last.fm/about/jobs', title: 'Jobs' },
-  { url: 'last.fm/resources', title: 'Logo & badges' },
-  { url: 'last.fm/advertise', title: 'Advertise' },
-  { url: 'last.fm/legal', title: 'Legal' },
+  { title: 'About', url: 'last.fm/about' },
+  { title: 'Blog', url: 'blog.last.fm' },
+  { title: 'Contact us', url: 'last.fm/about/contact' },
+  { title: 'Jobs', url: 'last.fm/about/jobs' },
+  { title: 'Logo & badges', url: 'last.fm/resources' },
+  { title: 'Advertise', url: 'last.fm/advertise' },
+  { title: 'Legal', url: 'last.fm/legal' },
 ];
 
 const joinLinks = [
-  { url: 'join', title: 'Sign up' },
-  { url: 'community/users', title: 'Find people' },
-  { url: 'community/groups', title: 'Find groups' },
-  { url: 'forum', title: 'Forums' },
+  { title: 'Sign up', url: 'join' },
+  { title: 'Find people', url: 'community/users' },
+  { title: 'Find groups', url: 'community/groups' },
+  { title: 'Forums', url: 'forum' },
 ];
 
 const doMoreLinks = [
   {
-    url: 'last.fm/download',
-    title: 'The Scrobbler',
     textContent: 'Download Scrobbler',
+    title: 'The Scrobbler',
+    url: 'last.fm/download',
   },
   {
-    url: 'last.fm/hardware/ios',
-    title: 'The iOS Scrobbler',
     textContent: 'Scrobbler for iOS',
+    title: 'The iOS Scrobbler',
+    url: 'last.fm/hardware/ios',
   },
   {
-    url: 'last.fm/hardware/apple',
-    title: undefined,
     textContent: 'iPhone app',
-  },
-  { url: 'last.fm/hardware', title: undefined, textContent: 'More apps' },
-  { url: 'playground.last.fm', title: undefined, textContent: 'Playground' },
-  {
-    url: 'build.last.fm',
     title: undefined,
-    textContent: 'Tools, plugins &amp; more',
+    url: 'last.fm/hardware/apple',
   },
-  { url: 'last.fm/api', title: undefined, textContent: 'Last.fm API' },
+  { textContent: 'More apps', title: undefined, url: 'last.fm/hardware' },
+  { textContent: 'Playground', title: undefined, url: 'playground.last.fm' },
+  {
+    textContent: 'Tools, plugins &amp; more',
+    title: undefined,
+    url: 'build.last.fm',
+  },
+  { textContent: 'Last.fm API', title: undefined, url: 'last.fm/api' },
 ];
 
 export default function Footer() {

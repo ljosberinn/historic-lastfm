@@ -49,7 +49,7 @@ export default function Header() {
                 href={`http://last.fm/${title}`}
                 className="nav-link"
               >
-                {title.charAt(0).toUpperCase() + title.substr(1)}
+                {title.charAt(0).toUpperCase() + title.slice(1)}
               </ExternalLink>
             </li>
           ))}

@@ -8,7 +8,7 @@ import { createArtistUrl, createTrackUrl } from '../../utils/links';
 const now = dayjs();
 
 function TrackList({ tracks, lovedTracks }) {
-  const lovedIds = lovedTracks.map(({ id }) => id);
+  const lovedIds = new Set(lovedTracks.map(({ id }) => id));
 
   return (
     <table className="tracklist withimages" id="recentTracks">
@@ -16,7 +16,7 @@ function TrackList({ tracks, lovedTracks }) {
         {tracks.map(trackData => (
           <Track
             {...trackData}
-            isLoved={trackData.id && lovedIds.includes(trackData.id)}
+            isLoved={trackData.id && lovedIds.has(trackData.id)}
             key={trackData.timestamp}
           />
         ))}

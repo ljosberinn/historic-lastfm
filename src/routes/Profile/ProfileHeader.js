@@ -18,7 +18,7 @@ const navElements = [
 ];
 
 const upperCaseFirstCharacter = str =>
-  str.charAt(0).toUpperCase() + str.substr(1);
+  str.charAt(0).toUpperCase() + str.slice(1);
 
 export default function ProfileHeader() {
   const { name } = useProfile();

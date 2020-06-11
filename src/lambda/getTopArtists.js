@@ -54,7 +54,7 @@ export async function handler({ queryStringParameters: { name } }, context) {
               playCount: playcount,
             })
           );
-        } catch (error) {
+        } catch {
           // ignore the error, fallback defined in body will be fine
         }
       })

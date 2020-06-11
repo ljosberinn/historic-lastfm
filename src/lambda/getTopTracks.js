@@ -54,7 +54,7 @@ export async function handler({ queryStringParameters: { name } }, context) {
               track: name,
             };
           });
-        } catch (error) {
+        } catch {
           // ignore the error, fallback defined in body will be fine
         }
       })

@@ -41,7 +41,7 @@ export default function Library() {
 
   const formattedArtistAmount = new Intl.NumberFormat(
     window.navigator.language || 'de'
-  ).format(parseInt(totalArtistAmount));
+  ).format(Number.parseInt(totalArtistAmount));
 
   return (
     <div id="taste" className="clearit module modulelibrary">

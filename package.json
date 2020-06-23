@@ -21,7 +21,7 @@
     "react-scripts": "3.4.1"
   },
   "devDependencies": {
-    "eslint": "^7.3.0",
+    "eslint": "^7.3.1",
     "eslint-config-galex": "^0.4.6",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",

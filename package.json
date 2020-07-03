@@ -9,7 +9,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
-    "dayjs": "^1.8.28",
+    "dayjs": "^1.8.29",
     "dotenv-webpack": "^1.8.0",
     "http-proxy-middleware": "^1.0.4",
     "netlify-lambda": "^1.6.3",

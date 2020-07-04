@@ -21,8 +21,8 @@
     "react-scripts": "3.4.1"
   },
   "devDependencies": {
-    "eslint": "^7.3.1",
-    "eslint-config-galex": "^0.5.0",
+    "eslint": "^7.4.0",
+    "eslint-config-galex": "^0.7.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5"
@@ -35,10 +35,7 @@
     "build:app": "react-scripts build",
     "build:lambda": "netlify-lambda build -c ./config/lambda-webpack.js src/lambda",
     "lint": "eslint src",
-    "lint-fix": "eslint src --fix && prettier --write src"
-  },
-  "eslintConfig": {
-    "extends": "galex"
+    "lint:fix": "eslint src --fix && prettier --write src"
   },
   "browserslist": {
     "production": [

@@ -16,7 +16,7 @@ function LibraryItem({ name, img, playCount, userName }) {
           <span className="image">
             <img height="126" width="126" alt="" src={img} />
           </span>
-          <span className="overlay"></span>
+          <span className="overlay" />
         </span>
         <strong className="name">{name}</strong>
       </ExternalLink>{' '}

@@ -15,7 +15,7 @@ export default function Events() {
           <ExternalLink href={eventsUrl}>Events</ExternalLink>
         </span>
       </h2>
-      <ul className="eventsSmall"></ul>
+      <ul className="eventsSmall" />
       <span className="moduleOptions">
         <ExternalLink href={eventsUrl}>See more</ExternalLink>{' '}
         <ExternalLink href="http://last.fm/events/add">Add event</ExternalLink>

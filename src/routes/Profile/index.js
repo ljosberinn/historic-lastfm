@@ -70,11 +70,11 @@ export default function Profile() {
       fetch(createFrontendUrl('getTopTracks', fields)),
       fetch(createFrontendUrl('getLibrary', fields)),
     ])
-
+      // eslint-disable-next-line promise/prefer-await-to-then
       .then(responses =>
         Promise.all(responses.map(response => response.json()))
       )
-
+      // eslint-disable-next-line promise/prefer-await-to-then
       .then(
         ([
           info,
@@ -98,6 +98,7 @@ export default function Profile() {
           });
         }
       )
+      // eslint-disable-next-line no-console
       .catch(console.error);
   }, [name]);
 

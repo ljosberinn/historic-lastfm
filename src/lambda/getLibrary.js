@@ -46,7 +46,8 @@ export async function handler({ queryStringParameters: { name } }, context) {
       statusCode: OK,
     };
   } catch (error) {
-    console.log(error);
+    // eslint-disable-next-line no-console
+    console.error(error);
     return {
       statusCode: error.message.includes(NOT_FOUND)
         ? NOT_FOUND

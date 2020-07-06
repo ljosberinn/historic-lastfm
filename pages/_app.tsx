@@ -1,3 +1,4 @@
+import withGA from 'next-ga';
 import { AppProps } from 'next/app';
 import Router from 'next/router';
 import NProgress from 'nprogress';
@@ -16,7 +17,7 @@ Router.events.on('routeChangeStart', () => {
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-export default function App({ Component, pageProps, router }: AppProps) {
+function App({ Component, pageProps, router }: AppProps) {
   if (router) {
     attachRoutingContext(router, Component.name);
   }
@@ -2195,3 +2196,4 @@ export default function App({ Component, pageProps, router }: AppProps) {
     </TopLevelErrorBoundary>
   );
 }
+export default withGA('UA-171750977-1', Router)(App);

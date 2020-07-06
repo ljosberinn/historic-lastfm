@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { Timespan } from '../context/ProfileContext';
 import useProfile from '../hooks/useProfile';
 import ExternalLink from './ExternalLink';
 import Graph from './Graph';
@@ -9,7 +10,7 @@ import GraphRow from './GraphRow';
 export default function TopTracks() {
   const { topTracks, name, lovedTracks } = useProfile();
 
-  const [activeTimespan, setActiveTimespan] = useState<Timespan>('overall');
+  const [activeTimespan, setActiveTimespan] = useState(Timespan.overall);
 
   function handleChange(event, timespan) {
     event.preventDefault();
@@ -56,9 +57,12 @@ export default function TopTracks() {
               artist={artist}
               name={name}
               track={track}
-              isLoved={lovedTracks.find(
-                dataset => dataset.artist === artist && dataset.track === track
-              )}
+              isLoved={
+                !!lovedTracks.find(
+                  dataset =>
+                    dataset.artist === artist && dataset.track === track
+                )
+              }
               key={track}
             />
           )

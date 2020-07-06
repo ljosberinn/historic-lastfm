@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { Timespan } from '../context/ProfileContext';
 import useProfile from '../hooks/useProfile';
 import ExternalLink from './ExternalLink';
 import Graph from './Graph';
@@ -8,7 +9,7 @@ import GraphRow from './GraphRow';
 
 export default function TopArtists() {
   const { topArtists, name } = useProfile();
-  const [activeTimespan, setActiveTimespan] = useState<Timespan>('overall');
+  const [activeTimespan, setActiveTimespan] = useState(Timespan.overall);
 
   function handleChange(event, timespan) {
     event.preventDefault();

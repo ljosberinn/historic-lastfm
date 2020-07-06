@@ -8,7 +8,7 @@ interface GraphRowProps {
   artist: string;
   playCount: number;
   name: string;
-  relativeTo: boolean;
+  relativeTo: number;
   track?: string;
   isLoved?: boolean;
 }

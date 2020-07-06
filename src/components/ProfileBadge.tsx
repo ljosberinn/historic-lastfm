@@ -55,7 +55,7 @@ function Info() {
       ? Math.round((recentTracks[0].timestamp - registered) / 60 / 60 / 24)
       : 0;
 
-  const avgPerDay = Math.round(totalPlayCount / passedDays);
+  const avgPerDay = Math.round(Number.parseInt(totalPlayCount) / passedDays);
 
   return (
     <div className="badgeInfo">

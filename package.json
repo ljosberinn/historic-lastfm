@@ -29,7 +29,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src",
+    "lint": "eslint src && tsc --noEmit",
     "lint:fix": "eslint src --fix && prettier --write src"
   },
   "browserslist": {

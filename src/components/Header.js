@@ -94,6 +94,7 @@ export default function Header() {
           role="search"
           onSubmit={handleSubmit}
         >
+          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
           <input
             id="siteSearchBox"
             type="text"
@@ -114,6 +115,7 @@ export default function Header() {
           >
             Loading
           </div>
+          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
           <button
             id="siteSearchSubmit"
             type="submit"

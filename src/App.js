@@ -22,8 +22,7 @@ export default function App() {
           </div>
           <div id="content">
             <Switch>
-              <Route path="/user/:name" component={Profile} />
-              exact />
+              <Route path="/user/:name" exact component={Profile} />
               <Route render={() => <Redirect to="/user/XHS207GA" />} />
             </Switch>
           </div>

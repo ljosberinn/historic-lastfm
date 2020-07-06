@@ -222,6 +222,7 @@ export default function Footer() {
                 <option value="http://www.urbanbaby.com">UrbanBaby.com</option>
                 <option value="http://www.zdnet.com">ZDNet</option>
               </select>
+              {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
               <input type="button" className="rb_visit_go" value="Go" />
             </div>
           </form>

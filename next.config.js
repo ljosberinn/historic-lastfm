@@ -1,12 +1,52 @@
 const withPrefresh = require('@prefresh/next');
+const SentryWebpackPlugin = require('@sentry/webpack-plugin');
+
+const date = new Date();
+
+const {
+  SENTRY_DSN,
+  SENTRY_ORG,
+  SENTRY_PROJECT,
+  SENTRY_AUTH_TOKEN,
+  NODE_ENV,
+} = process.env;
+
+// eslint-disable-next-line no-console
+console.debug(`> Building on NODE_ENV="${NODE_ENV}"`);
 
 const config = {
+  env: {
+    BUILD_TIME: date.toString(),
+    BUILD_TIMESTAMP: +date,
+  },
   experimental: {
     modern: true,
     polyfillsOptimization: true,
   },
+  reactStrictMode: true,
 
-  webpack(config, { dev, isServer }) {
+  webpack(config, { dev, isServer, buildId }) {
+    if (!isServer) {
+      config.resolve.alias['@sentry/node'] = '@sentry/react';
+    }
+
+    if (
+      SENTRY_DSN &&
+      SENTRY_ORG &&
+      SENTRY_PROJECT &&
+      SENTRY_AUTH_TOKEN &&
+      NODE_ENV === 'production'
+    ) {
+      config.plugins.push(
+        new SentryWebpackPlugin({
+          ignore: ['node_modules'],
+          include: '.next',
+          release: buildId,
+          urlPrefix: '~/_next',
+        })
+      );
+    }
+
     const splitChunks = config.optimization && config.optimization.splitChunks;
 
     if (splitChunks) {

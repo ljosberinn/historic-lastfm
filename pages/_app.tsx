@@ -5,6 +5,10 @@ import React from 'react';
 
 import Footer from '../src/components/Footer';
 import Header from '../src/components/Header';
+import {
+  attachRoutingContext,
+  ErrorBoundary as TopLevelErrorBoundary,
+} from '../src/utils/sentry';
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start();
@@ -12,16 +16,22 @@ Router.events.on('routeChangeStart', () => {
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
+  if (router) {
+    attachRoutingContext(router, Component.name);
+  }
+
   return (
-    <>
+    <TopLevelErrorBoundary showDialog>
       <div id="fauxHeaderContainer" className="clearit">
         <div id="fauxHeader" />
       </div>
 
       <div id="page">
         <div className="fiflufi">
-          <Header />
+          <TopLevelErrorBoundary>
+            <Header />
+          </TopLevelErrorBoundary>
           <div
             id="LastAd_leaderboard"
             className="LastAd ad-leaderboard inactive"
@@ -29,11 +39,16 @@ export default function App({ Component, pageProps }: AppProps) {
             <span />
           </div>
           <div id="content">
-            <Component {...pageProps} />
+            <TopLevelErrorBoundary showDialog>
+              <Component {...pageProps} />
+            </TopLevelErrorBoundary>
           </div>
         </div>
       </div>
-      <Footer />
+
+      <TopLevelErrorBoundary>
+        <Footer />
+      </TopLevelErrorBoundary>
       <style jsx global>
         {`
           /* ==========================================================================
@@ -2177,6 +2192,6 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
-    </>
+    </TopLevelErrorBoundary>
   );
 }

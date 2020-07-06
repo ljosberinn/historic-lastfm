@@ -27,6 +27,10 @@ import ProfileContextProvider, {
   initialState,
   Profile as IProfile,
 } from '../../src/context/ProfileContext';
+import {
+  attachLambdaContext,
+  attachComponentBreadcrumb,
+} from '../../src/utils/sentry';
 
 dayjs.extend(relativeTime);
 
@@ -37,6 +41,8 @@ interface ProfileProps {
 const cache: { [key: string]: { profile: IProfile; ts: number } } = {};
 
 export default function Profile(props: ProfileProps) {
+  attachComponentBreadcrumb('Profile');
+
   return (
     <ProfileContextProvider value={props.profile}>
       <ProfileHeader />
@@ -65,6 +71,8 @@ export default function Profile(props: ProfileProps) {
 const cacheisValid = (ts: number) => Date.now() - 24 * 60 * 60 * 1000 <= ts;
 
 export const getServerSideProps: GetServerSideProps<ProfileProps> = async ctx => {
+  attachLambdaContext(ctx.req);
+
   const name = ctx.query.name || 'XHS207GA';
 
   if (Array.isArray(name)) {

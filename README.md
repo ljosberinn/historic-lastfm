@@ -1,4 +1,3 @@
-[![Netlify Status][netlify-image] ][netlify-url]
 [![dependencies][dependencies-image] ][dependencies-url]
 [![devdependencies][devdependencies-image] ][devdependencies-url]
 
@@ -6,8 +5,6 @@
 [dependencies-url]: https://david-dm.org/ljosberinn/historic-lastfm
 [devdependencies-image]: https://david-dm.org/ljosberinn/historic-lastfm/dev-status.png
 [devdependencies-url]: https://david-dm.org/ljosberinn/historic-lastfm#info=devDependencies
-[netlify-image]: https://api.netlify.com/api/v1/badges/00cd3573-9deb-4cd9-90a8-0bc80de00d6f/deploy-status
-[netlify-url]: https://app.netlify.com/sites/historic-lastfm/deploys
 
 # Why
 
@@ -27,19 +24,11 @@
 
 ## Host
 
-- Netlify
+- Vercel
 
 ## Backend
 
-- [Netlify Functions](https://www.netlify.com/products/functions/)
-
-## SEO
-
-- [react-helmet](https://github.com/nfl/react-helmet)
-
-## Misc
-
-- [react-router](https://reacttraining.com/react-router/web/guides/quick-start)
+- Next.js API Routes
 
 # Requirements
 
@@ -49,6 +38,7 @@
 - you need an [API key from last.fm](https://www.last.fm/api/account/create) to get data
 
 # Development
+
 ```bash
 git clone https://github.com/ljosberinn/historic-lastfm
 cd historic-lastfm

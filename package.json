@@ -8,32 +8,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.2",
     "dayjs": "^1.8.29",
     "dotenv-webpack": "^1.8.0",
-    "http-proxy-middleware": "^1.0.4",
     "netlify-lambda": "^1.6.3",
+    "next": "9.4.4",
     "npm-run-all": "^4.1.5",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@types/react": "^16.9.41",
     "eslint": "^7.4.0",
     "eslint-config-galex": "^0.7.2",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.6"
   },
   "scripts": {
-    "start": "run-p start:**",
-    "start:app": "react-scripts start",
-    "start:lambda": "netlify-lambda serve -c ./config/lambda-webpack.js src/lambda",
-    "build": "run-p build:**",
-    "build:app": "react-scripts build",
-    "build:lambda": "netlify-lambda build -c ./config/lambda-webpack.js src/lambda",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix && prettier --write src"
   },

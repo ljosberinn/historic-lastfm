@@ -20,7 +20,7 @@ function Friend({ name, subscriber, img, odd }: FriendProps) {
     >
       <div className="vcard ">
         <strong>
-          <Link href={`/user/${name}`}>
+          <Link href="/user/[name]" as={`/user/${name}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a>
               {img && (

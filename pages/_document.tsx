@@ -27,6 +27,10 @@ export default function CustomDocument() {
           name="description"
           content="Historic Last.fm - browse your current profile with the design of 2013"
         />
+        <meta
+          name="google-site-verification"
+          content="X0ScTNaPp9UmcbhQ8mz1-pajgJYHeH_btDy_eGlN0IU"
+        />
       </Head>
       <body className="not-responsive">
         <Main />

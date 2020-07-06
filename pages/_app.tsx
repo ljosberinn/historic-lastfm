@@ -6,7 +6,9 @@ import React from 'react';
 import Footer from '../src/components/Footer';
 import Header from '../src/components/Header';
 
-Router.events.on('routeChangeStart', NProgress.start());
+Router.events.on('routeChangeStart', () => {
+  NProgress.start();
+});
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 

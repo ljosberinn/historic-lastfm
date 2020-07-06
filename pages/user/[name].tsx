@@ -38,7 +38,7 @@ interface ProfileProps {
   profile: IProfile;
 }
 
-const cache: { [key: string]: { profile: IProfile; ts: number } } = {};
+const cache = new Map<string, { profile: IProfile; ts: number }>();
 
 export default function Profile(props: ProfileProps) {
   attachComponentBreadcrumb('Profile');
@@ -73,9 +73,7 @@ const cacheisValid = (ts: number) => Date.now() - 24 * 60 * 60 * 1000 <= ts;
 export const getServerSideProps: GetServerSideProps<ProfileProps> = async ctx => {
   attachLambdaContext(ctx.req);
 
-  const name = ctx.query.name || 'XHS207GA';
-
-  if (Array.isArray(name)) {
+  if (Array.isArray(ctx.query.name)) {
     return {
       props: {
         profile: initialState,
@@ -83,12 +81,18 @@ export const getServerSideProps: GetServerSideProps<ProfileProps> = async ctx =>
     };
   }
 
-  if (cache[name] && cacheisValid(cache[name].ts)) {
-    return {
-      props: {
-        profile: cache[name].profile,
-      },
-    };
+  const name = (ctx.query.name || 'XHS207GA').toLowerCase();
+
+  if (cache.has(name)) {
+    const { ts, profile } = cache.get(name);
+
+    if (cacheisValid(ts)) {
+      return {
+        props: {
+          profile,
+        },
+      };
+    }
   }
 
   const friends = await getFriends(name);
@@ -110,10 +114,10 @@ export const getServerSideProps: GetServerSideProps<ProfileProps> = async ctx =>
     totalArtistAmount,
   };
 
-  cache[name] = {
+  cache.set(name, {
     profile,
     ts: Date.now(),
-  };
+  });
 
   return {
     props: {

@@ -16,7 +16,7 @@ function Shout({ message, timestamp, author, subscriber }: Shout) {
   return (
     <li className="clearit message">
       <h3 className="author subscriber">
-        <Link href={`/user/${author}`}>
+        <Link href="/user/[name]" as={`/user/${author}`}>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a>
             <span className="userImage">

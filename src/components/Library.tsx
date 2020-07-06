@@ -28,7 +28,7 @@ function LibraryItem({ name, img, playCount, userName }) {
           width="13"
           height="13"
           alt="Play"
-          src="../assets/img/play_indicator.png"
+          src="/img/play_indicator.png"
         />
       </a>
     </li>

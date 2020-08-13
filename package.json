@@ -27,7 +27,7 @@
     "react-ssr-prepass": "npm:preact-ssr-prepass@^1.0.1"
   },
   "devDependencies": {
-    "@sentry/types": "^5.19.0",
+    "@sentry/types": "^5.21.1",
     "@types/react": "^16.9.46",
     "eslint": "^7.6.0",
     "eslint-config-galex": "^0.9.6",

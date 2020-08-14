@@ -30,7 +30,7 @@
     "@sentry/types": "^5.21.1",
     "@types/react": "^16.9.46",
     "eslint": "^7.6.0",
-    "eslint-config-galex": "^0.9.6",
+    "eslint-config-galex": "^0.9.7",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",

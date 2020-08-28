@@ -1259,13 +1259,14 @@
     "@sentry/utils" "5.22.0"
     tslib "^1.9.3"
 
-"@sentry/integrations@^5.21.4":
-  version "5.21.4"
-  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-5.21.4.tgz#7fa9730437f74bf71c437adf22c61ef2bf277d44"
-  integrity sha512-tyrdVCTenshOA3qhaXcmGc5a9QrD6d5pjGX4zqXHWLp5Tb2q8dx49LaDualIuqCmaIk/6Z/5GHYqS4gPRaTcog==
+"@sentry/integrations@^5.22.2":
+  version "5.22.2"
+  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-5.22.2.tgz#20e767e0017e935ea46cd255dfd7274cf05fe648"
+  integrity sha512-Zt3sas3x1LtNPOX7nMVldfmQTk0Z1U9GHKQf5eme1vndIbEPANfWWRqbvgjxVQK5ilnNETCsHetneqJB9akN+Q==
   dependencies:
-    "@sentry/types" "5.21.4"
-    "@sentry/utils" "5.21.4"
+    "@sentry/types" "5.22.2"
+    "@sentry/utils" "5.22.2"
+    localforage "1.8.1"
     tslib "^1.9.3"
 
 "@sentry/minimal@5.22.0":
@@ -1315,23 +1316,15 @@
     "@sentry/utils" "5.22.0"
     tslib "^1.9.3"
 
-"@sentry/types@5.21.4":
-  version "5.21.4"
-  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-5.21.4.tgz#f088a36ca765657b74b869f8739056961383c159"
-  integrity sha512-uJTRxW//NPO0UJJzRQOtYHg5tiSBvn1dRk5FvURXmeXt9d9XtwmRhHWDwI51uAkyv+51tun3v+0OZQfLvAI+gQ==
-
-"@sentry/types@5.22.0", "@sentry/types@^5.21.1":
+"@sentry/types@5.22.0":
   version "5.22.0"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-5.22.0.tgz#7017dc5f36aa05b7042c3ef703a740b397db8230"
   integrity sha512-PAeOQ8yxTkeTdJSYbPw6Tb7Wtx7/MWggqH6qj2G41u1yCvOoPURhlmd3pSayad+lWs2qm2kjVdkJKbPVJ4kojQ==
 
-"@sentry/utils@5.21.4":
-  version "5.21.4"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-5.21.4.tgz#353264fdd5743edf140daf4c37209d350c9d8258"
-  integrity sha512-zY8OvaE/lU+DCzTSFrDZNXZmBLM/0URUlyYD4RubqzrgKY/eP1pSbEsDzYYhc+OrBr8TjG66N+5T3gMZX0BfNg==
-  dependencies:
-    "@sentry/types" "5.21.4"
-    tslib "^1.9.3"
+"@sentry/types@5.22.2", "@sentry/types@^5.21.1":
+  version "5.22.2"
+  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-5.22.2.tgz#32d7f82537afe7712971fd6222c7744f0d8a27fe"
+  integrity sha512-Ko9pri0D0TNaSHocLVLQQZlnTtMXrBhP5AZYjB193aYqc1x52dFchQlhiKLEgyFCKjTEIlD/J9ZD7QkQoeYT+A==
 
 "@sentry/utils@5.22.0":
   version "5.22.0"
@@ -1339,6 +1332,14 @@
   integrity sha512-MvHB+PAVI4PAffZOiRhgODmj1CgmViO2257abGtBY2hM1wGqc6tmLw1mn6rF+fh+Id2UDfa4miIJL2VY1E2aaw==
   dependencies:
     "@sentry/types" "5.22.0"
+    tslib "^1.9.3"
+
+"@sentry/utils@5.22.2":
+  version "5.22.2"
+  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-5.22.2.tgz#7296cd9036e8d34638743a27fe8c6fe0e70db902"
+  integrity sha512-HGpPohNgwRhR+7bf2OlziX84JVdwQAauesqcL4Y78e+U09+E06cQAEQkRIQJfn2Ai2NvVmMVhdj51v+AqmaAWQ==
+  dependencies:
+    "@sentry/types" "5.22.2"
     tslib "^1.9.3"
 
 "@sentry/webpack-plugin@^1.12.1":
@@ -4180,6 +4181,11 @@ ignore@^5.1.1:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.1.8.tgz#f150a8b50a34289b33e22f5889abd4d8016f0e57"
   integrity sha512-BMpfD7PpiETpBl/A6S498BaIJ6Y/ABT93ETbby2fP00v4EbvPBXWEoaR1UBPKs3iR53pJY7EtZk5KACI57i1Uw==
 
+immediate@~3.0.5:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/immediate/-/immediate-3.0.6.tgz#9db1dbd0faf8de6fbe0f5dd5e56bb606280de69b"
+  integrity sha1-nbHb0Pr43m++D13V5Wu2BigN5ps=
+
 import-fresh@^3.0.0, import-fresh@^3.1.0, import-fresh@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-3.2.1.tgz#633ff618506e793af5ac91bf48b72677e15cbe66"
@@ -4602,6 +4608,13 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
+lie@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/lie/-/lie-3.1.1.tgz#9a436b2cc7746ca59de7a41fa469b3efb76bd87e"
+  integrity sha1-mkNrLMd0bKWd56QfpGmz77dr2H4=
+  dependencies:
+    immediate "~3.0.5"
+
 lines-and-columns@^1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
@@ -4693,6 +4706,13 @@ loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4.0:
     big.js "^5.2.2"
     emojis-list "^3.0.0"
     json5 "^1.0.1"
+
+localforage@1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/localforage/-/localforage-1.8.1.tgz#f6c0a24b41ab33b10e4dc84342dd696f6f3e3433"
+  integrity sha512-azSSJJfc7h4bVpi0PGi+SmLQKJl2/8NErI+LhJsrORNikMZnhaQ7rv9fHj+ofwgSHrKRlsDCL/639a6nECIKuQ==
+  dependencies:
+    lie "3.1.1"
 
 locate-path@^2.0.0:
   version "2.0.0"

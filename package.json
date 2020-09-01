@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@sentry/types": "^5.21.1",
-    "@types/react": "^16.9.48",
+    "@types/react": "^16.9.49",
     "eslint": "^7.7.0",
     "eslint-config-galex": "^0.9.7",
     "husky": "^4.2.5",

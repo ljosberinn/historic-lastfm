@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import { MouseEvent, KeyboardEvent } from 'react';
 
 import { Timespan } from '../context/ProfileContext';
 
@@ -13,26 +13,42 @@ const timespans = [
 
 interface GraphHeaderProps {
   activeTimespan: Timespan;
-  handleChange: (event: MouseEvent<HTMLSpanElement>, Timespan) => void;
+  handleChange: (
+    event: MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>,
+    timespan: Timespan
+  ) => void;
 }
 
-export default function GraphHeader({
+export function GraphHeader({
   activeTimespan,
   handleChange,
-}: GraphHeaderProps) {
+}: GraphHeaderProps): JSX.Element {
   return (
     <div className="horizontalOptions clearit">
       <ul>
-        {timespans.map(({ chart, display, data }) => (
-          <li
-            className={[`chart${chart}`, activeTimespan === data && 'current']
-              .filter(Boolean)
-              .join(' ')}
-            key={chart}
-          >
-            <span onClick={event => handleChange(event, data)}>{display}</span>
-          </li>
-        ))}
+        {timespans.map(({ chart, display, data }) => {
+          const onClick = (
+            event: MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>
+          ) => handleChange(event, data);
+
+          return (
+            <li
+              className={[`chart${chart}`, activeTimespan === data && 'current']
+                .filter(Boolean)
+                .join(' ')}
+              key={chart}
+            >
+              <span
+                role="link"
+                tabIndex={-1}
+                onClick={onClick}
+                onKeyUp={onClick}
+              >
+                {display}
+              </span>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

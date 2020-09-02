@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 
 import { Timespan } from '../context/ProfileContext';
-import useProfile from '../hooks/useProfile';
-import ExternalLink from './ExternalLink';
-import Graph from './Graph';
-import GraphHeader from './GraphHeader';
-import GraphRow from './GraphRow';
+import { useProfile } from '../hooks/useProfile';
+import { ExternalLink } from './ExternalLink';
+import { Graph } from './Graph';
+import { GraphHeader } from './GraphHeader';
+import { GraphRow } from './GraphRow';
 
-export default function TopTracks() {
+export function TopTracks(): JSX.Element {
   const { topTracks, name, lovedTracks } = useProfile();
 
   const [activeTimespan, setActiveTimespan] = useState(Timespan.overall);
 
-  function handleChange(event, timespan) {
+  function handleChange(
+    event: MouseEvent<HTMLSpanElement>,
+    timespan: Timespan
+  ) {
     event.preventDefault();
     setActiveTimespan(timespan);
   }

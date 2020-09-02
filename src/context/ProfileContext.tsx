@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode } from 'react';
+import { createContext, ReactNode } from 'react';
 
 export interface Friend {
   country: string;
@@ -74,7 +74,7 @@ export const initialState: Profile = {
     [Timespan['1month']]: [],
     [Timespan['3month']]: [],
     [Timespan['6month']]: [],
-    [Timespan['overall']]: [],
+    [Timespan.overall]: [],
   },
   topTracks: {
     [Timespan['12month']]: [],
@@ -82,7 +82,7 @@ export const initialState: Profile = {
     [Timespan['1month']]: [],
     [Timespan['3month']]: [],
     [Timespan['6month']]: [],
-    [Timespan['overall']]: [],
+    [Timespan.overall]: [],
   },
   totalArtistAmount: '0',
   totalPlayCount: '0',
@@ -95,10 +95,10 @@ interface ProfileContextProviderProps {
   value: Profile;
 }
 
-export default function ProfileContextProvider({
+export function ProfileContextProvider({
   children,
   value,
-}: ProfileContextProviderProps) {
+}: ProfileContextProviderProps): JSX.Element {
   return (
     <ProfileContext.Provider value={value}>{children}</ProfileContext.Provider>
   );

@@ -16,10 +16,12 @@ type Fields = {
   period?: Timespan;
 };
 
+const defaultFields = { user: 'XHS207GA' };
+
 export const createBackendUrl = (
   method: Method,
-  fields: Fields = { user: 'XHS207GA' }
-) =>
+  fields: Fields = defaultFields
+): string =>
   [
     'http://ws.audioscrobbler.com/2.0/',
     new URLSearchParams({
@@ -30,7 +32,7 @@ export const createBackendUrl = (
     }).toString(),
   ].join('?');
 
-export const createFrontendUrl = (endpoint: string, fields = {}) =>
+export const createFrontendUrl = (endpoint: string, fields = {}): string =>
   [
     `/.netlify/functions/${endpoint}`,
     new URLSearchParams(fields).toString(),

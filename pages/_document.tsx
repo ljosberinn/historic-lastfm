@@ -1,7 +1,5 @@
 import * as Sentry from '@sentry/node';
 import NextDocument, { Html, Main, NextScript, Head } from 'next/document';
-import React from 'react';
-
 import { attachComponentBreadcrumb } from '../src/utils/sentry';
 
 /**

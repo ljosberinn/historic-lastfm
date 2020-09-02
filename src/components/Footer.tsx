@@ -1,6 +1,4 @@
-import React from 'react';
-
-import ExternalLink from './ExternalLink';
+import { ExternalLink } from './ExternalLink';
 
 const legalLinks = [
   { title: 'About', url: 'last.fm/about' },
@@ -45,7 +43,7 @@ const doMoreLinks = [
   { textContent: 'Last.fm API', title: undefined, url: 'last.fm/api' },
 ];
 
-export default function Footer() {
+export function Footer(): JSX.Element {
   return (
     <footer role="banner" className="site-footer">
       <div className="responsive-container">

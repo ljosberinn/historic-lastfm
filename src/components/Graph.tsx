@@ -1,9 +1,9 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
-import useProfile from '../hooks/useProfile';
-import ExternalLink from './ExternalLink';
+import { useProfile } from '../hooks/useProfile';
+import { ExternalLink } from './ExternalLink';
 
-export default function Graph({ children }) {
+export function Graph({ children }: { children: ReactNode }): JSX.Element {
   const { name } = useProfile();
 
   return (

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
-import ExternalLink from './ExternalLink';
+import { ExternalLink } from './ExternalLink';
 
 const navElements = [
   'music',
@@ -12,18 +12,19 @@ const navElements = [
   'community',
 ];
 
-export default function Header() {
+export function Header(): JSX.Element {
   const { push } = useRouter();
 
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
 
-  function handleSubmit(event) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     setLoading(true);
 
-    push(`/user/${search}`);
+    // eslint-disable-next-line no-console
+    push(`/user/${search}`).catch(console.error);
 
     setTimeout(() => {
       setLoading(false);
@@ -31,7 +32,7 @@ export default function Header() {
     }, 2000);
   }
 
-  function handleChange({ target: { value } }) {
+  function handleChange({ target: { value } }: ChangeEvent<HTMLInputElement>) {
     setSearch(value);
   }
 
@@ -44,7 +45,7 @@ export default function Header() {
 
         <ul id="primaryNav" role="navigation">
           {navElements.map(title => (
-            <li id={`{title}Nav`} className="navItem" key={title}>
+            <li id="{title}Nav" className="navItem" key={title}>
               <ExternalLink
                 href={`http://last.fm/${title}`}
                 className="nav-link"

@@ -1,7 +1,6 @@
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { GetServerSideProps } from 'next';
-import React from 'react';
 
 import { getFriends } from '../../src/api/getFriends';
 import { getInfo } from '../../src/api/getInfo';
@@ -10,23 +9,24 @@ import { getLovedTracks } from '../../src/api/getLovedTracks';
 import { getRecentTracks } from '../../src/api/getRecentTracks';
 import { getTopArtists } from '../../src/api/getTopArtists';
 import { getTopTracks } from '../../src/api/getTopTracks';
-import AboutMe from '../../src/components/AboutMe';
-import Events from '../../src/components/Events';
-import Friends from '../../src/components/Friends';
-import Groups from '../../src/components/Groups';
-import Library from '../../src/components/Library';
-import ProfileBadge from '../../src/components/ProfileBadge';
-import ProfileHeader from '../../src/components/ProfileHeader';
-import ProfileOptions from '../../src/components/ProfileOptions';
-import RecentActivity from '../../src/components/RecentActivity';
-import RecentlyListenedTracks from '../../src/components/RecentlyListenedTracks';
-import Shoutbox from '../../src/components/Shoutbox';
-import TopArtists from '../../src/components/TopArtists';
-import TopTracks from '../../src/components/TopTracks';
-import ProfileContextProvider, {
+import { AboutMe } from '../../src/components/AboutMe';
+import { Events } from '../../src/components/Events';
+import { Friends } from '../../src/components/Friends';
+import { Groups } from '../../src/components/Groups';
+import { Library } from '../../src/components/Library';
+import { ProfileBadge } from '../../src/components/ProfileBadge';
+import { ProfileHeader } from '../../src/components/ProfileHeader';
+import { ProfileOptions } from '../../src/components/ProfileOptions';
+import { RecentActivity } from '../../src/components/RecentActivity';
+import { RecentlyListenedTracks } from '../../src/components/RecentlyListenedTracks';
+import { Shoutbox } from '../../src/components/Shoutbox';
+import { TopArtists } from '../../src/components/TopArtists';
+import { TopTracks } from '../../src/components/TopTracks';
+import {
   initialState,
-  Profile as IProfile,
+  ProfileContextProvider,
 } from '../../src/context/ProfileContext';
+import type { Profile as IProfile } from '../../src/context/ProfileContext';
 import {
   attachLambdaContext,
   attachComponentBreadcrumb,
@@ -40,7 +40,8 @@ interface ProfileProps {
 
 const cache = new Map<string, { profile: IProfile; ts: number }>();
 
-export default function Profile(props: ProfileProps) {
+// eslint-disable-next-line import/no-default-export
+export default function Profile(props: ProfileProps): JSX.Element {
   attachComponentBreadcrumb('Profile');
 
   return (

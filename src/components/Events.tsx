@@ -1,9 +1,7 @@
-import React from 'react';
+import { useProfile } from '../hooks/useProfile';
+import { ExternalLink } from './ExternalLink';
 
-import useProfile from '../hooks/useProfile';
-import ExternalLink from './ExternalLink';
-
-export default function Events() {
+export function Events(): JSX.Element {
   const { name } = useProfile();
 
   const eventsUrl = `http://last.fm/user/${name}/events`;

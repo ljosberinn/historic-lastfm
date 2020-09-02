@@ -1,9 +1,8 @@
 import dayjs from 'dayjs';
-import React from 'react';
 
-import useProfile from '../hooks/useProfile';
+import { useProfile } from '../hooks/useProfile';
 import { createArtistUrl, createTrackUrl } from '../utils/link';
-import ExternalLink from './ExternalLink';
+import { ExternalLink } from './ExternalLink';
 
 const now = dayjs();
 
@@ -75,7 +74,7 @@ function Track({ artist, track, isLoved, timestamp, img }) {
   );
 }
 
-export default function RecentlyListenedTracks() {
+export function RecentlyListenedTracks(): JSX.Element {
   const { name, recentTracks, lovedTracks } = useProfile();
 
   return (

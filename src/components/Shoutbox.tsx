@@ -1,9 +1,8 @@
 import dayjs from 'dayjs';
 import Link from 'next/link';
-import React from 'react';
 
-import useProfile from '../hooks/useProfile';
-import ExternalLink from './ExternalLink';
+import { useProfile } from '../hooks/useProfile';
+import { ExternalLink } from './ExternalLink';
 
 interface Shout {
   message: string;
@@ -56,7 +55,7 @@ function Shout({ message, timestamp, author, subscriber }: Shout) {
   );
 }
 
-export default function Shoutbox() {
+export function Shoutbox(): JSX.Element {
   const { name } = useProfile();
 
   const shoutboxUrl = `http://last.fm/user/${name}/shoutbox`;

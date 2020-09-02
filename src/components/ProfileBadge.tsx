@@ -1,10 +1,9 @@
 import dayjs from 'dayjs';
-import React from 'react';
 
-import useProfile from '../hooks/useProfile';
-import ExternalLink from './ExternalLink';
+import { useProfile } from '../hooks/useProfile';
+import { ExternalLink } from './ExternalLink';
 
-export default function ProfileBadge() {
+export function ProfileBadge(): JSX.Element {
   return (
     <div id="userBadge" className="clearit subscriber vcard">
       <Avatar />
@@ -81,8 +80,9 @@ function Info() {
         >
           <strong>
             <span className="count">
-              {totalPlayCount?.split('').map((digit, index) => (
-                <span className="flip" key={index}>
+              {totalPlayCount.split('').map((digit, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <span className="flip" key={`${index}-${digit}`}>
                   {digit}
                 </span>
               ))}

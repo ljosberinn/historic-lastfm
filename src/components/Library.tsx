@@ -1,10 +1,15 @@
-import React from 'react';
-
-import useProfile from '../hooks/useProfile';
+import { useProfile } from '../hooks/useProfile';
 import { createArtistUrl, createTrackUrl } from '../utils/link';
-import ExternalLink from './ExternalLink';
+import { ExternalLink } from './ExternalLink';
 
-function LibraryItem({ name, img, playCount, userName }) {
+interface LibraryItemProps {
+  name: string;
+  img: string;
+  playCount: number;
+  userName: string;
+}
+
+function LibraryItem({ name, img, playCount, userName }: LibraryItemProps) {
   const artistUrl = createArtistUrl(name);
   const libraryUrl = `https://last.fm/${userName}/library/music/${name}`;
 
@@ -35,7 +40,7 @@ function LibraryItem({ name, img, playCount, userName }) {
   );
 }
 
-export default function Library() {
+export function Library(): JSX.Element {
   const { name, topArtists, lovedTracks, totalArtistAmount } = useProfile();
 
   const formattedArtistAmount = new Intl.NumberFormat(

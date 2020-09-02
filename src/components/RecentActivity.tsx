@@ -1,9 +1,8 @@
 import dayjs from 'dayjs';
-import React from 'react';
 
-import useProfile from '../hooks/useProfile';
+import { useProfile } from '../hooks/useProfile';
 import { createArtistUrl, createTrackUrl } from '../utils/link';
-import ExternalLink from './ExternalLink';
+import { ExternalLink } from './ExternalLink';
 
 const timeOfDay = (hour: number) => {
   if (hour > 18) {
@@ -88,7 +87,7 @@ function Activity({
   );
 }
 
-export default function RecentActivity() {
+export function RecentActivity(): JSX.Element {
   const { lovedTracks, name } = useProfile();
 
   const last9LovedTracks = [...lovedTracks].slice(0, 9);

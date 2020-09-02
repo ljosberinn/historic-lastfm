@@ -1,9 +1,7 @@
-import React from 'react';
+import { useProfile } from '../hooks/useProfile';
+import { ExternalLink } from './ExternalLink';
 
-import useProfile from '../hooks/useProfile';
-import ExternalLink from './ExternalLink';
-
-export default function ProfileOptions() {
+export function ProfileOptions(): JSX.Element {
   const { name, realName, country } = useProfile();
 
   return (

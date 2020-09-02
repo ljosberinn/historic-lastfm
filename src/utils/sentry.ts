@@ -1,5 +1,5 @@
 import { Debug } from '@sentry/integrations';
-import * as Sentry from '@sentry/node';
+import Sentry from '@sentry/node';
 import { IncomingMessage } from 'http';
 import { NextRouter } from 'next/router';
 
@@ -9,6 +9,7 @@ const { init, configureScope, addBreadcrumb, Severity } = Sentry;
 
 const sentryOptions: Sentry.NodeOptions = {
   attachStacktrace: true,
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   dsn: process.env.SENTRY_DSN!,
   enabled: true,
   maxBreadcrumbs: 50,
@@ -30,13 +31,14 @@ init(sentryOptions);
 
 configureScope(scope => {
   scope.setTag('nodejs', process.version);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   scope.setTag('buildTime', process.env.BUILD_TIME!);
 });
 
 /**
  * Attaches lambda request data to Sentry
  */
-export const attachLambdaContext = (req: IncomingMessage) => {
+export const attachLambdaContext = (req: IncomingMessage): void => {
   configureScope(scope => {
     scope.setTag('host', req.headers.host || '');
     scope.setTag('url', req.url || '');
@@ -59,8 +61,8 @@ const IS_BROWSER = typeof window !== 'undefined';
  */
 export const attachRoutingContext = (
   { route, pathname, query, asPath }: NextRouter,
-  name: string = 'unknown'
-) => {
+  name = 'unknown'
+): void => {
   configureScope(scope => {
     scope.setContext('router', {
       asPath,
@@ -74,7 +76,7 @@ export const attachRoutingContext = (
   attachComponentBreadcrumb(name);
 };
 
-export const attachComponentBreadcrumb = (name: string) => {
+export const attachComponentBreadcrumb = (name: string): void => {
   addBreadcrumb({
     level: Severity.Debug,
     message: `Preparing "${name}" (${IS_BROWSER ? 'in browser' : 'on server'})`,

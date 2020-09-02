@@ -1,9 +1,13 @@
-import React from 'react';
+import { useProfile } from '../hooks/useProfile';
+import { ExternalLink } from './ExternalLink';
 
-import useProfile from '../hooks/useProfile';
-import ExternalLink from './ExternalLink';
+interface GroupProps {
+  name: string;
+  img: string;
+  members: string;
+}
 
-function Group({ name, img, members }) {
+function Group({ name, img, members }: GroupProps) {
   return (
     <li className="clearit last">
       <ExternalLink href={`http://last.fm/group/${name}`}>
@@ -25,7 +29,7 @@ function Group({ name, img, members }) {
   );
 }
 
-export default function Groups() {
+export function Groups(): JSX.Element {
   const { name } = useProfile();
 
   return (

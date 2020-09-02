@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import React from 'react';
 
-import useProfile from '../hooks/useProfile';
-import ExternalLink from './ExternalLink';
+import { useProfile } from '../hooks/useProfile';
+import { ExternalLink } from './ExternalLink';
 
 interface FriendProps {
   name: string;
@@ -43,7 +42,7 @@ function Friend({ name, subscriber, img, odd }: FriendProps) {
   );
 }
 
-export default function Friends() {
+export function Friends(): JSX.Element {
   const { friends, name } = useProfile();
 
   return (

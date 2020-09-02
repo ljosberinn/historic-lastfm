@@ -39,7 +39,7 @@ export async function getTopTracks(user: string): Promise<TopTracks> {
       [Timespan['12month']]: twelveMonths,
       [Timespan['1month']]: oneMonth,
       [Timespan['6month']]: sixMonths,
-      [Timespan['overall']]: overall,
+      [Timespan.overall]: overall,
       [Timespan['3month']]: threeMonths,
       [Timespan['7day']]: sevenDays,
     };

@@ -1,6 +1,4 @@
-import React from 'react';
-
-export default function AboutMe() {
+export function AboutMe(): JSX.Element {
   return (
     <>
       <h2 className="heading">

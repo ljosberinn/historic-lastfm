@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Timespan } from '../context/ProfileContext';
-import useProfile from '../hooks/useProfile';
-import ExternalLink from './ExternalLink';
-import Graph from './Graph';
-import GraphHeader from './GraphHeader';
-import GraphRow from './GraphRow';
+import { useProfile } from '../hooks/useProfile';
+import { ExternalLink } from './ExternalLink';
+import { Graph } from './Graph';
+import { GraphHeader } from './GraphHeader';
+import { GraphRow } from './GraphRow';
 
-export default function TopArtists() {
+export function TopArtists(): JSX.Element {
   const { topArtists, name } = useProfile();
   const [activeTimespan, setActiveTimespan] = useState(Timespan.overall);
 
-  function handleChange(event, timespan) {
+  function handleChange(event, timespan: Timespan) {
     event.preventDefault();
     setActiveTimespan(timespan);
   }

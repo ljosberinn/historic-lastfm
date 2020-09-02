@@ -1,8 +1,7 @@
 import Head from 'next/head';
-import React from 'react';
 
-import useProfile from '../hooks/useProfile';
-import ExternalLink from './ExternalLink';
+import { useProfile } from '../hooks/useProfile';
+import { ExternalLink } from './ExternalLink';
 
 const navElements = [
   'library',
@@ -17,10 +16,10 @@ const navElements = [
   'library/tags',
 ];
 
-const upperCaseFirstCharacter = str =>
+const upperCaseFirstCharacter = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1);
 
-export default function ProfileHeader() {
+export function ProfileHeader(): JSX.Element {
   const { name } = useProfile();
 
   return (

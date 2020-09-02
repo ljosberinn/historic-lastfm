@@ -2,8 +2,6 @@ import withGA from 'next-ga';
 import { AppProps } from 'next/app';
 import Router from 'next/router';
 import NProgress from 'nprogress';
-import React from 'react';
-
 import Footer from '../src/components/Footer';
 import Header from '../src/components/Header';
 import {

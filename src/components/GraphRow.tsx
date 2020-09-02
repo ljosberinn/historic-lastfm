@@ -1,7 +1,5 @@
-import React from 'react';
-
 import { createArtistUrl, createTrackUrl } from '../utils/link';
-import ExternalLink from './ExternalLink';
+import { ExternalLink } from './ExternalLink';
 
 interface GraphRowProps {
   index: number;
@@ -13,7 +11,7 @@ interface GraphRowProps {
   isLoved?: boolean;
 }
 
-export default function GraphRow({
+export function GraphRow({
   index,
   artist,
   playCount,
@@ -21,7 +19,7 @@ export default function GraphRow({
   track,
   relativeTo,
   isLoved,
-}: GraphRowProps) {
+}: GraphRowProps): JSX.Element {
   const artistUrl = createArtistUrl(artist);
   const trackUrl = track && createTrackUrl(artistUrl, track);
 
@@ -42,7 +40,10 @@ export default function GraphRow({
           />
         </ExternalLink>
       </td>
-      <td className="subjectCell" title={`${track}, played ${playCount} times`}>
+      <td
+        className="subjectCell"
+        title={`${track ?? ''}, played ${playCount} times`}
+      >
         <div>
           <ExternalLink href={artistUrl}>{artist}</ExternalLink>{' '}
           {trackUrl && (

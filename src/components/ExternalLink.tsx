@@ -1,4 +1,4 @@
-import React, { ReactNode, HTMLAttributes } from 'react';
+import { ReactNode, HTMLAttributes } from 'react';
 
 interface ExternalLinkProps extends HTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
@@ -8,7 +8,10 @@ interface ExternalLinkProps extends HTMLAttributes<HTMLAnchorElement> {
   id?: string;
 }
 
-export default function ExternalLink({ children, ...rest }: ExternalLinkProps) {
+export function ExternalLink({
+  children,
+  ...rest
+}: ExternalLinkProps): JSX.Element {
   return (
     <a target="_blank" rel="noopener noreferrer" {...rest}>
       {children}

@@ -19,6 +19,14 @@ const config = {
     BUILD_TIME: date.toString(),
     BUILD_TIMESTAMP: +date,
   },
+  typescript: {
+    /**
+     * `yarn lint:types` ran in CI already so we can safely assume no errors
+     *  here, conveniently reducing build time by ~55%
+     * @see https://nextjs.org/docs/api-reference/next.config.js/ignoring-typescript-errors
+     */
+    ignoreBuildErrors: true,
+  },
   experimental: {
     modern: true,
     polyfillsOptimization: true,

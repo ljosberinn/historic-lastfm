@@ -31,7 +31,7 @@ import { attachLambdaContext } from '../../src/utils/sentry/server';
 
 dayjs.extend(relativeTime);
 
-interface ProfileProps {
+type ProfileProps = {
   profile: IProfile;
 }
 

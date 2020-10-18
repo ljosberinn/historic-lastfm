@@ -1,19 +1,19 @@
 import { createContext, ReactNode } from 'react';
 
-export interface Friend {
+export type Friend = {
   country: string;
   img: string;
   name: string;
   subscriber: boolean;
-}
+};
 
-export interface Track {
+export type Track = {
   artist: string;
   id: string;
   img: string;
   track: string;
   timestamp: number;
-}
+};
 
 export enum Timespan {
   '7day' = '7day',
@@ -40,7 +40,7 @@ export type TopTracks = {
   }[];
 };
 
-export interface Profile {
+export type Profile = {
   country: string;
   registered: number;
   totalPlayCount: string;
@@ -55,7 +55,7 @@ export interface Profile {
   recentTracks: Track[];
   topArtists: TopArtists;
   topTracks: TopTracks;
-}
+};
 
 export const initialState: Profile = {
   country: 'Germany',
@@ -90,10 +90,10 @@ export const initialState: Profile = {
 
 export const ProfileContext = createContext<Profile>(initialState);
 
-interface ProfileContextProviderProps {
+type ProfileContextProviderProps = {
   children: ReactNode;
   value: Profile;
-}
+};
 
 export function ProfileContextProvider({
   children,

@@ -1,7 +1,7 @@
 import { createArtistUrl, createTrackUrl } from '../utils/link';
 import { ExternalLink } from './ExternalLink';
 
-interface GraphRowProps {
+type GraphRowProps = {
   index: number;
   artist: string;
   playCount: number;
@@ -9,7 +9,7 @@ interface GraphRowProps {
   relativeTo: number;
   track?: string;
   isLoved?: boolean;
-}
+};
 
 export function GraphRow({
   index,
@@ -32,6 +32,7 @@ export function GraphRow({
       <td className="playbuttonCell">
         <ExternalLink className="playbutton preview-track" href={artistUrl}>
           <img
+            loading="lazy"
             className="transparent_png play_icon"
             width="13"
             height="13"
@@ -56,6 +57,7 @@ export function GraphRow({
       <td className="lovedCell">
         {isLoved && (
           <img
+            loading="lazy"
             title="A loved track"
             alt="Loved track"
             className="icon loved_indicator_icon"

@@ -140,6 +140,7 @@ export function Footer(): JSX.Element {
         <hr className="separator" />
         <div className="media site-footer-legalese">
           <img
+            loading="lazy"
             src="https://web.archive.org/web/20130605105804im_/http://cdn.last.fm/flatness/anon-homepage/footer_as.png"
             className="media-pull-right"
             width="50"

@@ -18,6 +18,7 @@ export function ProfileOptions(): JSX.Element {
             >
               <strong>
                 <img
+                  loading="lazy"
                   className="icon addtofriends_icon"
                   width="17"
                   height="17"
@@ -34,6 +35,7 @@ export function ProfileOptions(): JSX.Element {
               className="icon lfmMailButton"
             >
               <img
+                loading="lazy"
                 className="icon mailuser_icon"
                 width="13"
                 height="9"
@@ -46,6 +48,7 @@ export function ProfileOptions(): JSX.Element {
           <li>
             <a href="#shoutbox" className="icon lfmShoutboxButton">
               <img
+                loading="lazy"
                 className="icon comment_icon"
                 width="13"
                 height="11"

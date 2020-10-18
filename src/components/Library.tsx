@@ -2,12 +2,12 @@ import { useProfile } from '../hooks/useProfile';
 import { createArtistUrl, createTrackUrl } from '../utils/link';
 import { ExternalLink } from './ExternalLink';
 
-interface LibraryItemProps {
+type LibraryItemProps = {
   name: string;
   img: string;
   playCount: number;
   userName: string;
-}
+};
 
 function LibraryItem({ name, img, playCount, userName }: LibraryItemProps) {
   const artistUrl = createArtistUrl(name);
@@ -18,7 +18,7 @@ function LibraryItem({ name, img, playCount, userName }: LibraryItemProps) {
       <ExternalLink href={artistUrl}>
         <span className="pictureFrame">
           <span className="image">
-            <img height="126" width="126" alt="" src={img} />
+            <img loading="lazy" height="126" width="126" alt="" src={img} />
           </span>
           <span className="overlay" />
         </span>
@@ -29,6 +29,7 @@ function LibraryItem({ name, img, playCount, userName }: LibraryItemProps) {
       </a>{' '}
       <a className="playbutton preview-track" href={artistUrl}>
         <img
+          loading="lazy"
           className="transparent_png play_icon"
           width="13"
           height="13"
@@ -94,6 +95,7 @@ export function Library(): JSX.Element {
                     className="icon"
                   >
                     <img
+                      loading="lazy"
                       className="icon loved_indicator_icon"
                       width="11"
                       height="9"
@@ -107,6 +109,7 @@ export function Library(): JSX.Element {
                     className="icon"
                   >
                     <img
+                      loading="lazy"
                       className="icon feed_small_icon"
                       width="10"
                       height="10"
@@ -132,10 +135,10 @@ export function Library(): JSX.Element {
   );
 }
 
-interface LastLovedTrack {
+type LastLovedTrack = {
   artist: string;
   track: string;
-}
+};
 
 function LastLovedTrack({ artist, track }: LastLovedTrack) {
   const artistUrl = createArtistUrl(artist);

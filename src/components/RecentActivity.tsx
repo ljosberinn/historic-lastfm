@@ -20,14 +20,14 @@ const timeOfDay = (hour: number) => {
   return 'night';
 };
 
-interface ActivityProps {
+type ActivityProps = {
   type: string;
   name: string;
   timestamp: number;
   artist?: string;
   track?: string;
   isLast?: boolean;
-}
+};
 
 function Activity({
   type,
@@ -69,6 +69,7 @@ function Activity({
   return (
     <li className={liClasses}>
       <img
+        loading="lazy"
         className="icon act_loved_icon"
         width="20"
         height="20"

@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { useProfile } from '../hooks/useProfile';
 import { ExternalLink } from './ExternalLink';
 
-interface FriendProps {
+type FriendProps = {
   name: string;
   subscriber: boolean;
   img: string;
   odd: boolean;
-}
+};
 
 function Friend({ name, subscriber, img, odd }: FriendProps) {
   return (
@@ -25,6 +25,7 @@ function Friend({ name, subscriber, img, odd }: FriendProps) {
               {img && (
                 <span className="userImage">
                   <img
+                    loading="lazy"
                     className="photo fn"
                     alt={name}
                     height="34"

@@ -19,6 +19,7 @@ function Avatar() {
     <div className="badgeAvatar">
       <span className="userImage">
         <img
+          loading="lazy"
           className="photo"
           height="248"
           width="126"
@@ -107,6 +108,7 @@ function Info() {
           <span className="shoutCount">
             <a href="#shoutbox" id="shoutBoxLink" className="icon">
               <img
+                loading="lazy"
                 className="icon comment_icon"
                 width="13"
                 height="11"

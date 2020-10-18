@@ -11,13 +11,13 @@ const timespans = [
   { chart: 'overall', data: 'overall', display: 'Overall' },
 ];
 
-interface GraphHeaderProps {
+type GraphHeaderProps = {
   activeTimespan: Timespan;
   handleChange: (
     event: MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>,
     timespan: Timespan
   ) => void;
-}
+};
 
 export function GraphHeader({
   activeTimespan,

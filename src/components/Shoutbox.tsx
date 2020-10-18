@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { useProfile } from '../hooks/useProfile';
 import { ExternalLink } from './ExternalLink';
 
-interface Shout {
+type Shout = {
   message: string;
   timestamp: number;
   author: string;
   subscriber: boolean;
-}
+};
 
 function Shout({ message, timestamp, author, subscriber }: Shout) {
   return (
@@ -20,6 +20,7 @@ function Shout({ message, timestamp, author, subscriber }: Shout) {
           <a>
             <span className="userImage">
               <img
+                loading="lazy"
                 src="https://lastfm.freetls.fastly.net/i/u/avatar170s/7ff6057a12ab6429c2231150923aec40.webp"
                 className="avatar "
                 width="64"
@@ -27,6 +28,7 @@ function Shout({ message, timestamp, author, subscriber }: Shout) {
               />
               {subscriber && (
                 <img
+                  loading="lazy"
                   className="icon subscriber_icon"
                   alt=""
                   width="6"

@@ -2,7 +2,8 @@ import { GetServerSideProps } from 'next';
 
 import { FOUND_MOVED_TEMPORARILY } from '../src/utils/statusCodes';
 
-export default function Home() {
+// eslint-disable-next-line import/no-default-export
+export default function Home(): null {
   return null;
 }
 

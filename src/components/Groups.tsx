@@ -1,11 +1,11 @@
 import { useProfile } from '../hooks/useProfile';
 import { ExternalLink } from './ExternalLink';
 
-interface GroupProps {
+type GroupProps = {
   name: string;
   img: string;
   members: string;
-}
+};
 
 function Group({ name, img, members }: GroupProps) {
   return (
@@ -14,6 +14,7 @@ function Group({ name, img, members }: GroupProps) {
         <strong>
           <span className="groupImg">
             <img
+              loading="lazy"
               className="groupImage imagesmallsquare"
               height="34"
               width="34"

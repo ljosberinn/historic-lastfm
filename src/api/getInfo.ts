@@ -1,7 +1,7 @@
 import { initialState, Profile } from '../context/ProfileContext';
 import { createBackendUrl } from '../utils/api';
 
-interface Info {
+type Info = {
   country: Profile['country'];
   img: Profile['img'];
   realName: Profile['realName'];
@@ -10,7 +10,7 @@ interface Info {
   totalPlayCount: Profile['totalPlayCount'];
   subscriber: Profile['subscriber'];
   registered: Profile['registered'];
-}
+};
 
 export async function getInfo(name: string): Promise<Info> {
   const endpoint = createBackendUrl('user.getInfo', {

@@ -21,6 +21,7 @@ export function TopArtists(): JSX.Element {
       <div className="moduleButtons">
         <span>
           <img
+            loading="lazy"
             className="icon feed_small_icon"
             width="10"
             height="10"

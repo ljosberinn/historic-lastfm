@@ -1,12 +1,12 @@
 import { ReactNode, HTMLAttributes } from 'react';
 
-interface ExternalLinkProps extends HTMLAttributes<HTMLAnchorElement> {
+type ExternalLinkProps = {
   children: ReactNode;
   href?: string;
   rel?: string;
   title?: string;
   id?: string;
-}
+} & HTMLAttributes<HTMLAnchorElement>;
 
 export function ExternalLink({
   children,

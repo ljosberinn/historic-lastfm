@@ -36,7 +36,7 @@ function Track({ artist, track, isLoved, timestamp, img }) {
     <tr>
       <td className="imageCell imageSmall">
         <ExternalLink href={trackLink}>
-          <img height="34" width="34" alt="" src={img} />
+          <img loading="lazy" height="34" width="34" alt="" src={img} />
         </ExternalLink>
       </td>
 
@@ -50,6 +50,7 @@ function Track({ artist, track, isLoved, timestamp, img }) {
       <td className="lovedCell">
         {isLoved && (
           <img
+            loading="lazy"
             title="A loved track"
             alt="Loved track"
             className="icon loved_indicator_icon"
@@ -91,6 +92,7 @@ export function RecentlyListenedTracks(): JSX.Element {
           href={`http://ws.audioscrobbler.com/1.0/user/${name}/recenttracks.rss`}
         >
           <img
+            loading="lazy"
             className="icon feed_small_icon"
             width="10"
             height="10"

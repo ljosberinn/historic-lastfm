@@ -1,5 +1,7 @@
 import { GetServerSideProps } from 'next';
+
 import { FOUND_MOVED_TEMPORARILY } from '../src/utils/statusCodes';
+
 export default function Home() {
   return null;
 }

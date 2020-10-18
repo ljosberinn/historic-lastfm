@@ -2,12 +2,13 @@ import withGA from 'next-ga';
 import { AppProps } from 'next/app';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+
 import { Footer } from '../src/components/Footer';
 import { Header } from '../src/components/Header';
 import {
   attachRoutingContext,
   ErrorBoundary as TopLevelErrorBoundary,
-} from '../src/utils/sentry';
+} from '../src/utils/sentry/client';
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start();
@@ -15,9 +16,9 @@ Router.events.on('routeChangeStart', () => {
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-function App({ Component, pageProps, router }: AppProps) {
+function App({ Component, pageProps, router }: AppProps): JSX.Element {
   if (router) {
-    attachRoutingContext(router, Component.name);
+    attachRoutingContext(router);
   }
 
   return (
@@ -2194,4 +2195,6 @@ function App({ Component, pageProps, router }: AppProps) {
     </TopLevelErrorBoundary>
   );
 }
+
+// eslint-disable-next-line import/no-default-export
 export default withGA('UA-171750977-1', Router)(App);

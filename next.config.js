@@ -1,24 +1,85 @@
-const withPrefresh = require('@prefresh/next');
-const SentryWebpackPlugin = require('@sentry/webpack-plugin');
-
 const date = new Date();
 
-const {
-  SENTRY_DSN,
-  SENTRY_ORG,
-  SENTRY_PROJECT,
-  SENTRY_AUTH_TOKEN,
-  NODE_ENV,
-} = process.env;
+const withPreact = (config, options) => {
+  if (!options.dev) {
+    const splitChunks = config.optimization && config.optimization.splitChunks;
+
+    if (splitChunks) {
+      const { cacheGroups } = splitChunks;
+      const test = /[/\\]node_modules[/\\](preact|preact-render-to-string|preact-context-provider)[/\\]/u;
+      if (cacheGroups.framework) {
+        cacheGroups.preact = {
+          ...cacheGroups.framework,
+          test,
+        };
+
+        cacheGroups.commons.name = 'framework';
+      } else {
+        cacheGroups.preact = {
+          chunks: 'all',
+          name: 'commons',
+          test,
+        };
+      }
+    }
+
+    const aliases = config.resolve.alias || (config.resolve.alias = {});
+    aliases.react = 'preact/compat';
+    aliases['react-dom'] = aliases.react;
+    aliases['react-ssr-prepass'] = 'preact-ssr-prepass';
+  }
+};
+
+const withSentry = (config, options) => {
+  if (!options.isServer) {
+    config.resolve.alias['@sentry/node'] = '@sentry/react';
+  }
+
+  /**
+   * enable this if you do _NOT_ use the Vercel Sentry integration
+   * but still want to fully use Sentry
+   *
+   * @see https://docs.sentry.io/product/integrations/vercel/
+   */
+
+  const hasSentry =
+    process.env.NEXT_PUBLIC_SENTRY_DSN &&
+    process.env.SENTRY_ORG &&
+    process.env.SENTRY_PROJECT &&
+    process.env.SENTRY_AUTH_TOKEN &&
+    process.env.VERCEL_GITHUB_COMMIT_SHA;
+
+  if (hasSentry) {
+    const SentryWebpackPlugin = require('@sentry/webpack-plugin');
+
+    config.plugins.push(
+      /**
+       * @see https://github.com/getsentry/sentry-webpack-plugin#options
+       */
+      new SentryWebpackPlugin({
+        ignore: ['node_modules'],
+        include: '.next',
+        release: process.env.VERCEL_GITHUB_COMMIT_SHA,
+        urlPrefix: '~/_next',
+      })
+    );
+  }
+};
 
 // eslint-disable-next-line no-console
-console.debug(`> Building on NODE_ENV="${NODE_ENV}"`);
+console.debug(`> Building on NODE_ENV="${process.env.NODE_ENV}"`);
 
 const config = {
   env: {
     BUILD_TIME: date.toString(),
-    BUILD_TIMESTAMP: +date,
+    BUILD_TIMESTAMP: Number(date),
   },
+  experimental: {
+    modern: true,
+    polyfillsOptimization: true,
+    productionBrowserSourceMaps: true,
+  },
+  reactStrictMode: true,
   typescript: {
     /**
      * `yarn lint:types` ran in CI already so we can safely assume no errors
@@ -27,72 +88,12 @@ const config = {
      */
     ignoreBuildErrors: true,
   },
-  experimental: {
-    modern: true,
-    polyfillsOptimization: true,
-  },
-  reactStrictMode: true,
-
-  webpack(config, { dev, isServer, buildId }) {
-    if (!isServer) {
-      config.resolve.alias['@sentry/node'] = '@sentry/react';
-    }
-
-    if (
-      SENTRY_DSN &&
-      SENTRY_ORG &&
-      SENTRY_PROJECT &&
-      SENTRY_AUTH_TOKEN &&
-      NODE_ENV === 'production'
-    ) {
-      config.plugins.push(
-        new SentryWebpackPlugin({
-          ignore: ['node_modules'],
-          include: '.next',
-          release: buildId,
-          urlPrefix: '~/_next',
-        })
-      );
-    }
-
-    const splitChunks = config.optimization && config.optimization.splitChunks;
-
-    if (splitChunks) {
-      const cacheGroups = splitChunks.cacheGroups;
-      const preactModules = /[/\\]node_modules[/\\](preact|preact-render-to-string|preact-context-provider)[/\\]/;
-
-      if (cacheGroups.framework) {
-        cacheGroups.preact = Object.assign({}, cacheGroups.framework, {
-          test: preactModules,
-        });
-        cacheGroups.commons.name = 'framework';
-      } else {
-        cacheGroups.preact = {
-          chunks: 'all',
-          name: 'commons',
-          test: preactModules,
-        };
-      }
-    }
-
-    // Install webpack aliases:
-    const aliases = config.resolve.alias || (config.resolve.alias = {});
-    aliases.react = aliases['react-dom'] = 'preact/compat';
-
-    // inject Preact DevTools
-    if (dev && !isServer) {
-      const entry = config.entry;
-      config.entry = async () => {
-        const entries = await entry();
-
-        entries['main.js'] = ['preact/debug'].concat(entries['main.js'] || []);
-
-        return entries;
-      };
-    }
+  webpack(config, options) {
+    withPreact(config, options);
+    withSentry(config, options);
 
     return config;
   },
 };
 
-module.exports = withPrefresh(config);
+module.exports = config;

@@ -27,10 +27,7 @@ import {
   ProfileContextProvider,
 } from '../../src/context/ProfileContext';
 import type { Profile as IProfile } from '../../src/context/ProfileContext';
-import {
-  attachLambdaContext,
-  attachComponentBreadcrumb,
-} from '../../src/utils/sentry';
+import { attachLambdaContext } from '../../src/utils/sentry/server';
 
 dayjs.extend(relativeTime);
 
@@ -42,8 +39,6 @@ const cache = new Map<string, { profile: IProfile; ts: number }>();
 
 // eslint-disable-next-line import/no-default-export
 export default function Profile(props: ProfileProps): JSX.Element {
-  attachComponentBreadcrumb('Profile');
-
   return (
     <ProfileContextProvider value={props.profile}>
       <ProfileHeader />

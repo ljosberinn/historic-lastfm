@@ -1,6 +1,5 @@
-import * as Sentry from '@sentry/node';
+import { captureException } from '@sentry/node';
 import NextDocument, { Html, Main, NextScript, Head } from 'next/document';
-import { attachComponentBreadcrumb } from '../src/utils/sentry';
 
 /**
  * Send to Sentry all uncaught exceptions.
@@ -11,13 +10,12 @@ import { attachComponentBreadcrumb } from '../src/utils/sentry';
  */
 ['unhandledRejection', 'uncaughtException'].forEach(event => {
   process.on(event, e => {
-    Sentry.captureException(e);
+    captureException(e);
   });
 });
 
-export default function CustomDocument() {
-  attachComponentBreadcrumb('document');
-
+// eslint-disable-next-line import/no-default-export
+export default function CustomDocument(): JSX.Element {
   return (
     <Html lang="en" dir="auto">
       <Head>
@@ -38,5 +36,7 @@ export default function CustomDocument() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/unbound-method
 CustomDocument.renderDocument = NextDocument.renderDocument;
+// eslint-disable-next-line @typescript-eslint/unbound-method
 CustomDocument.getInitialProps = NextDocument.getInitialProps;

@@ -9,7 +9,7 @@
   "private": true,
   "dependencies": {
     "@sentry/integrations": "^5.27.4",
-    "@sentry/node": "^5.27.4",
+    "@sentry/node": "^5.27.6",
     "@sentry/react": "^5.27.6",
     "@sentry/webpack-plugin": "^1.13.0",
     "dayjs": "^1.9.6",

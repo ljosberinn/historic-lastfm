@@ -23,7 +23,7 @@
     "preact-ssr-prepass": "1.1.2"
   },
   "devDependencies": {
-    "@sentry/types": "^5.29.0",
+    "@sentry/types": "^5.29.2",
     "@types/node": "^14.14.14",
     "@types/react": "^17.0.0",
     "eslint": "^7.15.0",

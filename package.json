@@ -10,7 +10,7 @@
   "dependencies": {
     "@sentry/integrations": "^5.30.0",
     "@sentry/node": "^5.30.0",
-    "@sentry/react": "^5.30.0",
+    "@sentry/react": "^6.0.0",
     "@sentry/webpack-plugin": "^1.14.0",
     "dayjs": "^1.10.3",
     "dotenv-webpack": "^6.0.0",

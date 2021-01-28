@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import { Track } from '../context/ProfileContext';
+import type { Track as TrackType } from '../context/ProfileContext';
 import { useProfile } from '../hooks/useProfile';
 import { createArtistUrl, createTrackUrl } from '../utils/link';
 import { ExternalLink } from './ExternalLink';
@@ -8,8 +8,8 @@ import { ExternalLink } from './ExternalLink';
 const now = dayjs();
 
 type TrackListProps = {
-  tracks: Track[];
-  lovedTracks: Track[];
+  tracks: TrackType[];
+  lovedTracks: TrackType[];
 };
 
 function TrackList({ tracks, lovedTracks }: TrackListProps) {
@@ -30,7 +30,7 @@ function TrackList({ tracks, lovedTracks }: TrackListProps) {
   );
 }
 
-type TrackProps = Track & { isLoved: boolean };
+type TrackProps = TrackType & { isLoved: boolean };
 
 function Track({ artist, track, isLoved, timestamp, img }: TrackProps) {
   const artistUrl = createArtistUrl(artist);

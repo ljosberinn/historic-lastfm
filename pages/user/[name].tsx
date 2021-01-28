@@ -1,6 +1,10 @@
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { GetServerSideProps } from 'next';
+import type {
+  GetStaticPathsResult,
+  GetStaticPropsContext,
+  GetStaticPropsResult,
+} from 'next';
 
 import { getFriends } from '../../src/api/getFriends';
 import { getInfo } from '../../src/api/getInfo';
@@ -27,20 +31,17 @@ import {
   ProfileContextProvider,
 } from '../../src/context/ProfileContext';
 import type { Profile as IProfile } from '../../src/context/ProfileContext';
-import { attachLambdaContext } from '../../src/utils/sentry/server';
 
 dayjs.extend(relativeTime);
 
 type ProfileProps = {
   profile: IProfile;
-}
-
-const cache = new Map<string, { profile: IProfile; ts: number }>();
+};
 
 // eslint-disable-next-line import/no-default-export
-export default function Profile(props: ProfileProps): JSX.Element {
+export default function Profile({ profile }: ProfileProps): JSX.Element {
   return (
-    <ProfileContextProvider value={props.profile}>
+    <ProfileContextProvider value={profile}>
       <ProfileHeader />
       <div className="leftCol">
         <div className="leftColWrapper">
@@ -64,12 +65,23 @@ export default function Profile(props: ProfileProps): JSX.Element {
   );
 }
 
-const cacheisValid = (ts: number) => Date.now() - 24 * 60 * 60 * 1000 <= ts;
+export const getStaticPaths = (): GetStaticPathsResult => {
+  return {
+    fallback: true,
+    paths: [
+      {
+        params: {
+          name: 'XHS207GA',
+        },
+      },
+    ],
+  };
+};
 
-export const getServerSideProps: GetServerSideProps<ProfileProps> = async ctx => {
-  attachLambdaContext(ctx.req);
-
-  if (Array.isArray(ctx.query.name)) {
+export const getStaticProps = async ({
+  params,
+}: GetStaticPropsContext): Promise<GetStaticPropsResult<ProfileProps>> => {
+  if (!params || Array.isArray(params.name)) {
     return {
       props: {
         profile: initialState,
@@ -77,19 +89,7 @@ export const getServerSideProps: GetServerSideProps<ProfileProps> = async ctx =>
     };
   }
 
-  const name = (ctx.query.name || 'XHS207GA').toLowerCase();
-
-  if (cache.has(name)) {
-    const { ts, profile } = cache.get(name);
-
-    if (cacheisValid(ts)) {
-      return {
-        props: {
-          profile,
-        },
-      };
-    }
-  }
+  const name = (params.name ?? 'XHS207GA').toLowerCase();
 
   const friends = await getFriends(name);
   const info = await getInfo(name);
@@ -110,14 +110,10 @@ export const getServerSideProps: GetServerSideProps<ProfileProps> = async ctx =>
     totalArtistAmount,
   };
 
-  cache.set(name, {
-    profile,
-    ts: Date.now(),
-  });
-
   return {
     props: {
       profile,
     },
+    revalidate: 3 * 60,
   };
 };

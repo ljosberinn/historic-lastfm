@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import type { ChangeEvent, FormEvent } from 'react';
+import { useState } from 'react';
 
 import { ExternalLink } from './ExternalLink';
 

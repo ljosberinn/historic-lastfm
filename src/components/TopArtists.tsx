@@ -1,3 +1,4 @@
+import type { MouseEvent, KeyboardEvent } from 'react';
 import { useState } from 'react';
 
 import { Timespan } from '../context/ProfileContext';
@@ -11,7 +12,10 @@ export function TopArtists(): JSX.Element {
   const { topArtists, name } = useProfile();
   const [activeTimespan, setActiveTimespan] = useState(Timespan.overall);
 
-  function handleChange(event, timespan: Timespan) {
+  function handleChange(
+    event: MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>,
+    timespan: Timespan
+  ) {
     event.preventDefault();
     setActiveTimespan(timespan);
   }

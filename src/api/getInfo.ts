@@ -1,4 +1,5 @@
-import { initialState, Profile } from '../context/ProfileContext';
+import type { Profile } from '../context/ProfileContext';
+import { initialState } from '../context/ProfileContext';
 import { createBackendUrl } from '../utils/api';
 
 type Info = {
@@ -34,6 +35,7 @@ export async function getInfo(name: string): Promise<Info> {
 
     return {
       country,
+      // @ts-expect-error fix at some later point, typing the lfm api is silly
       img: image.find(({ size }) => size === 'extralarge')['#text'],
       name,
       playlists,

@@ -69,7 +69,7 @@ export function GraphRow({
       </td>
       <td className="multibuttonCell">
         <ExternalLink
-          href={trackUrl || artistUrl}
+          href={trackUrl ?? artistUrl}
           className="lfmButton lfmSmallButton lfmSmallMultiButton lfmMultiButtonFull"
         >
           <span />

@@ -61,8 +61,9 @@ function Activity({
     return null;
   }
 
-  const artistUrl = createArtistUrl(artist);
-  const trackUrl = createTrackUrl(artistUrl, track);
+  const artistUrl = artist ? createArtistUrl(artist) : undefined;
+  const trackUrl =
+    artistUrl && track ? createTrackUrl(artistUrl, track) : undefined;
 
   const unixDayjs = dayjs.unix(timestamp);
 

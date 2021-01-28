@@ -1,5 +1,5 @@
-import withGA from 'next-ga';
-import { AppProps } from 'next/app';
+/* eslint-disable inclusive-language/use-inclusive-words */
+import type { AppProps } from 'next/app';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 
@@ -2197,4 +2197,4 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
 }
 
 // eslint-disable-next-line import/no-default-export
-export default withGA('UA-171750977-1', Router)(App);
+export default App;

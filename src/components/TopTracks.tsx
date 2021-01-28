@@ -1,4 +1,5 @@
-import { useState, MouseEvent } from 'react';
+import type { MouseEvent, KeyboardEvent } from 'react';
+import { useState } from 'react';
 
 import { Timespan } from '../context/ProfileContext';
 import { useProfile } from '../hooks/useProfile';
@@ -13,7 +14,7 @@ export function TopTracks(): JSX.Element {
   const [activeTimespan, setActiveTimespan] = useState(Timespan.overall);
 
   function handleChange(
-    event: MouseEvent<HTMLSpanElement>,
+    event: MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>,
     timespan: Timespan
   ) {
     event.preventDefault();
@@ -61,12 +62,9 @@ export function TopTracks(): JSX.Element {
               artist={artist}
               name={name}
               track={track}
-              isLoved={
-                !!lovedTracks.find(
-                  dataset =>
-                    dataset.artist === artist && dataset.track === track
-                )
-              }
+              isLoved={lovedTracks.some(
+                dataset => dataset.artist === artist && dataset.track === track
+              )}
               key={track}
             />
           )

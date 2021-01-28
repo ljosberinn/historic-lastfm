@@ -1,34 +1,6 @@
+const withPreact = require('next-plugin-preact');
+
 const date = new Date();
-
-const withPreact = (config, options) => {
-  if (!options.dev) {
-    const splitChunks = config.optimization && config.optimization.splitChunks;
-
-    if (splitChunks) {
-      const { cacheGroups } = splitChunks;
-      const test = /[/\\]node_modules[/\\](preact|preact-render-to-string|preact-context-provider)[/\\]/u;
-      if (cacheGroups.framework) {
-        cacheGroups.preact = {
-          ...cacheGroups.framework,
-          test,
-        };
-
-        cacheGroups.commons.name = 'framework';
-      } else {
-        cacheGroups.preact = {
-          chunks: 'all',
-          name: 'commons',
-          test,
-        };
-      }
-    }
-
-    const aliases = config.resolve.alias || (config.resolve.alias = {});
-    aliases.react = 'preact/compat';
-    aliases['react-dom'] = aliases.react;
-    aliases['react-ssr-prepass'] = 'preact-ssr-prepass';
-  }
-};
 
 const withSentry = (config, options) => {
   if (!options.isServer) {
@@ -69,7 +41,7 @@ const withSentry = (config, options) => {
 // eslint-disable-next-line no-console
 console.debug(`> Building on NODE_ENV="${process.env.NODE_ENV}"`);
 
-const config = {
+const config = withPreact({
   env: {
     BUILD_TIME: date.toString(),
     BUILD_TIMESTAMP: Number(date),
@@ -89,11 +61,10 @@ const config = {
     ignoreBuildErrors: true,
   },
   webpack(config, options) {
-    withPreact(config, options);
     withSentry(config, options);
 
     return config;
   },
-};
+});
 
 module.exports = config;

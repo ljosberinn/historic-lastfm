@@ -66,7 +66,11 @@ export function ProfileOptions(): JSX.Element {
   );
 }
 
-function Tasteometer({ name }) {
+type TasteometerProps = {
+  name: string;
+};
+
+function Tasteometer({ name }: TasteometerProps) {
   return (
     <div id="tasteometer" className="tasteometer userTasteometer">
       <p>

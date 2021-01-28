@@ -1,4 +1,5 @@
-import { initialState, TopArtists, Timespan } from '../context/ProfileContext';
+import type { TopArtists } from '../context/ProfileContext';
+import { initialState, Timespan } from '../context/ProfileContext';
 import { createBackendUrl } from '../utils/api';
 
 export async function getTopArtists(user: string): Promise<TopArtists> {
@@ -11,7 +12,7 @@ export async function getTopArtists(user: string): Promise<TopArtists> {
       twelveMonths,
       overall,
     ] = await Promise.all(
-      Object.keys(Timespan).map(async (period: Timespan) => {
+      Object.values(Timespan).map(async period => {
         const endpoint = createBackendUrl('user.getTopArtists', {
           limit: '10',
           period,
@@ -24,7 +25,9 @@ export async function getTopArtists(user: string): Promise<TopArtists> {
             topartists: { artist },
           } = await response.json();
 
+          // @ts-expect-error fix at some later point, typing the lfm api is silly
           return artist.map(({ name, image, playcount }) => ({
+            // @ts-expect-error fix at some later point, typing the lfm api is silly
             img: image.find(({ size }) => size === 'large')['#text'],
             name,
             playCount: playcount,

@@ -1,4 +1,4 @@
-import { Friend } from '../context/ProfileContext';
+import type { Friend } from '../context/ProfileContext';
 import { createBackendUrl } from '../utils/api';
 
 export async function getFriends(name: string): Promise<Friend[]> {
@@ -13,8 +13,10 @@ export async function getFriends(name: string): Promise<Friend[]> {
       friends: { user },
     } = await response.json();
 
+    // @ts-expect-error fix at some later point, typing the lfm api is silly
     return user.map(({ name, image, country, subscriber }) => ({
       country,
+      // @ts-expect-error fix at some later point, typing the lfm api is silly
       img: image.find(({ size }) => size === 'small')['#text'],
       name,
       subscriber,

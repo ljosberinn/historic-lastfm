@@ -1,4 +1,5 @@
-import { TopTracks, initialState, Timespan } from '../context/ProfileContext';
+import type { TopTracks } from '../context/ProfileContext';
+import { initialState, Timespan } from '../context/ProfileContext';
 import { createBackendUrl } from '../utils/api';
 
 export async function getTopTracks(user: string): Promise<TopTracks> {
@@ -11,7 +12,7 @@ export async function getTopTracks(user: string): Promise<TopTracks> {
       twelveMonths,
       overall,
     ] = await Promise.all(
-      Object.keys(Timespan).map(async (period: Timespan) => {
+      Object.values(Timespan).map(async period => {
         const endpoint = createBackendUrl('user.getTopTracks', {
           limit: '15',
           period,
@@ -24,6 +25,7 @@ export async function getTopTracks(user: string): Promise<TopTracks> {
             toptracks: { track },
           } = await response.json();
 
+          // @ts-expect-error fix at some later point, typing the lfm api is silly
           return track.map(({ artist, name, playcount }) => ({
             artist: artist.name,
             playCount: playcount,

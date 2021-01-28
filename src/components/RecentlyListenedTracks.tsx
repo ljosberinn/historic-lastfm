@@ -1,12 +1,18 @@
 import dayjs from 'dayjs';
 
+import { Track } from '../context/ProfileContext';
 import { useProfile } from '../hooks/useProfile';
 import { createArtistUrl, createTrackUrl } from '../utils/link';
 import { ExternalLink } from './ExternalLink';
 
 const now = dayjs();
 
-function TrackList({ tracks, lovedTracks }) {
+type TrackListProps = {
+  tracks: Track[];
+  lovedTracks: Track[];
+};
+
+function TrackList({ tracks, lovedTracks }: TrackListProps) {
   const lovedIds = new Set(lovedTracks.map(({ id }) => id));
 
   return (
@@ -15,7 +21,7 @@ function TrackList({ tracks, lovedTracks }) {
         {tracks.map(trackData => (
           <Track
             {...trackData}
-            isLoved={trackData.id && lovedIds.has(trackData.id)}
+            isLoved={!!(trackData.id && lovedIds.has(trackData.id))}
             key={trackData.timestamp}
           />
         ))}
@@ -24,7 +30,9 @@ function TrackList({ tracks, lovedTracks }) {
   );
 }
 
-function Track({ artist, track, isLoved, timestamp, img }) {
+type TrackProps = Track & { isLoved: boolean };
+
+function Track({ artist, track, isLoved, timestamp, img }: TrackProps) {
   const artistUrl = createArtistUrl(artist);
   const trackLink = createTrackUrl(artistUrl, track);
 

@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from 'next';
 
 import { FOUND_MOVED_TEMPORARILY } from '../src/utils/statusCodes';
 

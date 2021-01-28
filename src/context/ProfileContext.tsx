@@ -1,4 +1,5 @@
-import { createContext, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { createContext } from 'react';
 
 export type Friend = {
   country: string;
@@ -97,7 +98,7 @@ type ProfileContextProviderProps = {
 
 export function ProfileContextProvider({
   children,
-  value,
+  value = initialState,
 }: ProfileContextProviderProps): JSX.Element {
   return (
     <ProfileContext.Provider value={value}>{children}</ProfileContext.Provider>

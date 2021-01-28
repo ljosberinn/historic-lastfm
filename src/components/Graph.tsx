@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { useProfile } from '../hooks/useProfile';
 import { ExternalLink } from './ExternalLink';

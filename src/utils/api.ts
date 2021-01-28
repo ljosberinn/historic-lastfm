@@ -1,6 +1,7 @@
 import { Timespan } from '../context/ProfileContext';
 
-const key = process.env.API_KEY;
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const key = process.env.API_KEY!;
 
 type Method =
   | 'user.getLovedTracks'
@@ -10,17 +11,16 @@ type Method =
   | 'user.getRecentTracks'
   | 'user.getTopArtists'
   | 'user.getTopTracks';
+
 type Fields = {
   user: string;
   limit?: string;
   period?: Timespan;
 };
 
-const defaultFields = { user: 'XHS207GA' };
-
 export const createBackendUrl = (
   method: Method,
-  fields: Fields = defaultFields
+  { user = 'XHS207GA', limit = '200', period = Timespan.overall }: Fields
 ): string =>
   [
     'http://ws.audioscrobbler.com/2.0/',
@@ -28,12 +28,8 @@ export const createBackendUrl = (
       api_key: key,
       format: 'json',
       method,
-      ...fields,
+      user,
+      limit,
+      period,
     }).toString(),
-  ].join('?');
-
-export const createFrontendUrl = (endpoint: string, fields = {}): string =>
-  [
-    `/.netlify/functions/${endpoint}`,
-    new URLSearchParams(fields).toString(),
   ].join('?');

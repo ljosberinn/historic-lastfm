@@ -56,7 +56,9 @@ export async function getRecentTracks(user: string): Promise<Track[]> {
         track: name,
       };
     });
-  } catch {
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
     return initialState.recentTracks;
   }
 }

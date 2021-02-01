@@ -45,14 +45,17 @@ export async function getRecentTracks(user: string): Promise<Track[]> {
       recenttracks: { track },
     }: Response = await response.json();
 
-    return track.map(({ artist, image, date, name, mbid }) => {
+    return track.map(({ artist, image, date, name, mbid, ...rest }) => {
       const img = image.find(({ size }) => size === 'small');
+
+      const nowPlaying = !!rest['@attr']?.nowplaying;
 
       return {
         artist: artist['#text'],
         id: mbid,
         img: img?.['#text'] ?? '',
-        timestamp: Number.parseInt(date.uts, 10),
+        timestamp: nowPlaying ? -1 : Number.parseInt(date.uts, 10),
+        nowPlaying,
         track: name,
       };
     });

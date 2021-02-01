@@ -81,7 +81,7 @@ export function Library(): JSX.Element {
 
         <ul className="libraryItems artistsLarge">
           {topArtists.overall.map(data => (
-            <LibraryItem userName={name} {...data} key={data.name} />
+            <LibraryItem key={data.name} userName={name} {...data} />
           ))}
         </ul>
 

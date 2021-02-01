@@ -1,5 +1,3 @@
-const withPreact = require('next-plugin-preact');
-
 const date = new Date();
 
 const withSentry = (config, options) => {
@@ -41,7 +39,7 @@ const withSentry = (config, options) => {
 // eslint-disable-next-line no-console
 console.debug(`> Building on NODE_ENV="${process.env.NODE_ENV}"`);
 
-const config = withPreact({
+const config = {
   env: {
     BUILD_TIME: date.toString(),
     BUILD_TIMESTAMP: Number(date),
@@ -65,6 +63,6 @@ const config = withPreact({
 
     return config;
   },
-});
+};
 
 module.exports = config;

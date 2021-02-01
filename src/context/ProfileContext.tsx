@@ -14,6 +14,7 @@ export type Track = {
   img: string;
   track: string;
   timestamp: number;
+  nowPlaying: boolean;
 };
 
 export enum Timespan {

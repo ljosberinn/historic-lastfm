@@ -18,13 +18,17 @@ function TrackList({ tracks, lovedTracks }: TrackListProps) {
   return (
     <table className="tracklist withimages" id="recentTracks">
       <tbody>
-        {tracks.map(trackData => (
-          <Track
-            {...trackData}
-            isLoved={!!(trackData.id && lovedIds.has(trackData.id))}
-            key={trackData.timestamp}
-          />
-        ))}
+        {tracks.map((trackData, index) => {
+          const key = trackData.timestamp + index;
+
+          return (
+            <Track
+              key={key}
+              isLoved={!!(trackData.id && lovedIds.has(trackData.id))}
+              {...trackData}
+            />
+          );
+        })}
       </tbody>
     </table>
   );
@@ -32,19 +36,32 @@ function TrackList({ tracks, lovedTracks }: TrackListProps) {
 
 type TrackProps = TrackType & { isLoved: boolean };
 
-function Track({ artist, track, isLoved, timestamp, img }: TrackProps) {
+function Track({
+  artist,
+  track,
+  isLoved,
+  timestamp,
+  img,
+  nowPlaying,
+}: TrackProps) {
   const artistUrl = createArtistUrl(artist);
   const trackLink = createTrackUrl(artistUrl, track);
 
-  const formattedTimestamp = dayjs
-    .unix(timestamp || Date.now() / 1000)
-    .from(now);
+  const formattedTimestamp = nowPlaying
+    ? 'now playing'
+    : dayjs.unix(timestamp || Date.now() / 1000).from(now);
 
   return (
     <tr>
       <td className="imageCell imageSmall">
         <ExternalLink href={trackLink}>
-          <img loading="lazy" height="34" width="34" alt="" src={img} />
+          <img
+            loading="lazy"
+            height="34"
+            width="34"
+            alt={`${artist} - ${track}`}
+            src={img}
+          />
         </ExternalLink>
       </td>
 

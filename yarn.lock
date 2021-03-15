@@ -43,15 +43,6 @@
     semver "^6.3.0"
     source-map "^0.5.0"
 
-"@babel/eslint-parser@7.13.10":
-  version "7.13.10"
-  resolved "https://registry.yarnpkg.com/@babel/eslint-parser/-/eslint-parser-7.13.10.tgz#e272979914f36bb6cea144c14c32bb51632696dd"
-  integrity sha512-/I1HQ3jGPhIpeBFeI3wO9WwWOnBYpuR0pX0KlkdGcRQAVX9prB/FCS2HBpL7BiFbzhny1YCiBH8MTZD2jJa7Hg==
-  dependencies:
-    eslint-scope "5.1.0"
-    eslint-visitor-keys "^1.3.0"
-    semver "^6.3.0"
-
 "@babel/generator@^7.12.11":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.12.11.tgz#98a7df7b8c358c9a37ab07a24056853016aba3af"
@@ -1004,7 +995,7 @@ axobject-query@^2.2.0:
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-2.2.0.tgz#943d47e10c0b704aa42275e20edf3722648989be"
   integrity sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==
 
-babel-eslint@^10.1.0:
+babel-eslint@10.1.0, babel-eslint@^10.1.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.1.0.tgz#6968e568a910b78fb3779cdd8b6ac2f479943232"
   integrity sha512-ifWaTHQ0ce+448CYop8AdrQiBsGrnC+bMgfyKFdi6EsPLTAWG+QfyDeM6OH+FmWnKvEq5NnBMLvlBUPKQZoDSg==
@@ -1709,16 +1700,16 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-galex@2.11.6:
-  version "2.11.6"
-  resolved "https://registry.yarnpkg.com/eslint-config-galex/-/eslint-config-galex-2.11.6.tgz#7a419cf49e2b055f941a6a0c7aa929d96361938b"
-  integrity sha512-3eZgFmPH5BXo+OB9SYkGBS0hqya04ReeLiiJYDgv5+IWkf0afi+ILvfwRwU0Cw2vjkhRAaf4YuqonGIAHo0jUw==
+eslint-config-galex@2.11.8:
+  version "2.11.8"
+  resolved "https://registry.yarnpkg.com/eslint-config-galex/-/eslint-config-galex-2.11.8.tgz#d6f4238af936ced92b390f75662bb86af74751e6"
+  integrity sha512-Y0UWcEhiaouca6rzFPZWaKiJ5k1/6vGitKQ1TuPyOvq+4iXyLsiIVvmTDn45QG5ByBZzKSlnmKHYYDuuan396A==
   dependencies:
     "@babel/core" "7.13.10"
-    "@babel/eslint-parser" "7.13.10"
     "@next/eslint-plugin-next" "10.0.8"
     "@typescript-eslint/eslint-plugin" "4.17.0"
     "@typescript-eslint/parser" "4.17.0"
+    babel-eslint "10.1.0"
     confusing-browser-globals "1.0.10"
     eslint-config-prettier "8.1.0"
     eslint-plugin-import "2.22.1"
@@ -1879,14 +1870,6 @@ eslint-plugin-unicorn@28.0.2:
     safe-regex "^2.1.1"
     semver "^7.3.4"
 
-eslint-scope@5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-5.1.0.tgz#d0f971dfe59c69e0cada684b23d49dbf82600ce5"
-  integrity sha512-iiGRvtxWqgtx5m8EyQUJihBloE4EnYeGE/bz1wSPwJE6tZuJUtHlhqDM4Xj2ukE8Dyy1+HCZ4hE0fzIVMzb58w==
-  dependencies:
-    esrecurse "^4.1.0"
-    estraverse "^4.1.1"
-
 eslint-scope@^5.0.0, eslint-scope@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-5.1.1.tgz#e786e59a66cb92b3f6c1fb0d508aab174848f48c"
@@ -1986,7 +1969,7 @@ esquery@^1.3.1, esquery@^1.4.0:
   dependencies:
     estraverse "^5.1.0"
 
-esrecurse@^4.1.0, esrecurse@^4.3.0:
+esrecurse@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/esrecurse/-/esrecurse-4.3.0.tgz#7ad7964d679abb28bee72cec63758b1c5d2c9921"
   integrity sha512-KmfKL3b6G+RXvP8N1vr3Tq1kL/oCFgn2NYXEtqP8/L3pKapUA4G8cFVaoF3SU323CD4XypR/ffioHmkti6/Tag==

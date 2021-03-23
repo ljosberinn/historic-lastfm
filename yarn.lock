@@ -1714,10 +1714,10 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-galex@2.13.2:
-  version "2.13.2"
-  resolved "https://registry.yarnpkg.com/eslint-config-galex/-/eslint-config-galex-2.13.2.tgz#2ddbe6960c1d548be5ed0ddf9fe5841124344089"
-  integrity sha512-aMGMR+7yzmJ8MyiAz3bbbHztF0MwynhxTBSpRvSKn5oNq9mlrgjkEDHChL0PIkTcOXEmXlA4boR5YU6+vy0v6A==
+eslint-config-galex@2.13.4:
+  version "2.13.4"
+  resolved "https://registry.yarnpkg.com/eslint-config-galex/-/eslint-config-galex-2.13.4.tgz#578e689dec2c83721ffcb4d42a4e878beff41e59"
+  integrity sha512-aOzr9TRPqmeCZaY3PKLvZH1kx6KNBDus9RFSrjBgzSQn4gXnRye3ytirZtgGMzCPgGMaQ++3Vo6d+bVzmL3+xw==
   dependencies:
     "@babel/core" "7.13.10"
     "@next/eslint-plugin-next" "10.0.9"

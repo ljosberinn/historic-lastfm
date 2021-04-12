@@ -11,7 +11,7 @@
     "@sentry/integrations": "6.2.5",
     "@sentry/node": "6.2.5",
     "@sentry/react": "6.2.5",
-    "@sentry/webpack-plugin": "1.14.2",
+    "@sentry/webpack-plugin": "1.15.0",
     "dayjs": "1.10.4",
     "dotenv-webpack": "7.0.2",
     "next": "10.1.3",

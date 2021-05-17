@@ -25,7 +25,7 @@
     "@types/node": "15.0.3",
     "@types/react": "17.0.5",
     "eslint": "7.26.0",
-    "eslint-config-galex": "2.15.5",
+    "eslint-config-galex": "2.15.9",
     "husky": "6.0.0",
     "lint-staged": "11.0.0",
     "prettier": "2.3.0",

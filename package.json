@@ -23,7 +23,7 @@
   "devDependencies": {
     "@sentry/types": "6.4.0",
     "@types/node": "15.3.0",
-    "@types/react": "17.0.5",
+    "@types/react": "17.0.6",
     "eslint": "7.26.0",
     "eslint-config-galex": "2.15.10",
     "husky": "6.0.0",

@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@sentry/types": "6.4.1",
-    "@types/node": "15.6.0",
+    "@types/node": "15.6.1",
     "@types/react": "17.0.6",
     "eslint": "7.27.0",
     "eslint-config-galex": "2.16.2",

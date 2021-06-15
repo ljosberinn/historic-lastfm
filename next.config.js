@@ -44,9 +44,9 @@ const config = {
     BUILD_TIME: date.toString(),
     BUILD_TIMESTAMP: Number(date),
   },
+  webpack5: true,
   experimental: {
-    modern: true,
-    polyfillsOptimization: true,
+    reactRoot: true,
     productionBrowserSourceMaps: true,
   },
   reactStrictMode: true,
@@ -62,6 +62,9 @@ const config = {
     withSentry(config, options);
 
     return config;
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 };
 

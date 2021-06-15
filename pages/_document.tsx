@@ -14,7 +14,6 @@ import NextDocument, { Html, Main, NextScript, Head } from 'next/document';
   });
 });
 
-// eslint-disable-next-line import/no-default-export
 export default function CustomDocument(): JSX.Element {
   return (
     <Html lang="en" dir="auto">
@@ -36,7 +35,5 @@ export default function CustomDocument(): JSX.Element {
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/unbound-method
 CustomDocument.renderDocument = NextDocument.renderDocument;
-// eslint-disable-next-line @typescript-eslint/unbound-method
 CustomDocument.getInitialProps = NextDocument.getInitialProps;

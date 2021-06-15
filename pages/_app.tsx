@@ -16,7 +16,11 @@ Router.events.on('routeChangeStart', () => {
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-function App({ Component, pageProps, router }: AppProps): JSX.Element {
+export default function App({
+  Component,
+  pageProps,
+  router,
+}: AppProps): JSX.Element {
   if (router) {
     attachRoutingContext(router);
   }
@@ -2195,6 +2199,3 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
     </TopLevelErrorBoundary>
   );
 }
-
-// eslint-disable-next-line import/no-default-export
-export default App;

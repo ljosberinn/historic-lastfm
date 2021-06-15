@@ -77,8 +77,15 @@ function Activity({
         alt=""
         src="https://web.archive.org/web/20130605105804im_/http://cdn.last.fm/flatness/clear.gif"
       />
-      {name} added <ExternalLink href={artistUrl}>{artist}</ExternalLink> -{' '}
-      <ExternalLink href={trackUrl}>{track}</ExternalLink> to his/her{' '}
+      {name} added{' '}
+      {artistUrl ? (
+        <ExternalLink href={artistUrl}>{artist}</ExternalLink>
+      ) : (
+        artist
+      )}{' '}
+      -{' '}
+      {trackUrl ? <ExternalLink href={trackUrl}>{track}</ExternalLink> : track}{' '}
+      to his/her{' '}
       <ExternalLink href={`https://last.fm/user/${name}/library/loved`}>
         Loved Tracks.
       </ExternalLink>{' '}
@@ -110,10 +117,10 @@ export function RecentActivity(): JSX.Element {
             {last9LovedTracks.map((track, index) => (
               <Activity
                 type="lovedTrack"
+                key={track.timestamp}
                 {...track}
                 name={name}
                 isLast={index + 1 === last9LovedTracks.length}
-                key={track.timestamp}
               />
             ))}
           </>

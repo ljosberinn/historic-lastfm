@@ -20,7 +20,6 @@ function Friend({ name, subscriber, img, odd }: FriendProps) {
       <div className="vcard ">
         <strong>
           <Link href="/user/[name]" as={`/user/${name}`} prefetch={false}>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a>
               {img && (
                 <span className="userImage">
@@ -57,7 +56,7 @@ export function Friends(): JSX.Element {
       </h2>{' '}
       <ul className="usersSmall clearit">
         {friends.map((friend, index) => (
-          <Friend {...friend} odd={index % 2 === 0} key={friend.name} />
+          <Friend key={friend.name} {...friend} odd={index % 2 === 0} />
         ))}
       </ul>
       <span className="moduleOptions">

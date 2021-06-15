@@ -38,7 +38,6 @@ type ProfileProps = {
   profile: IProfile;
 };
 
-// eslint-disable-next-line import/no-default-export
 export default function Profile({ profile }: ProfileProps): JSX.Element {
   return (
     <ProfileContextProvider value={profile}>

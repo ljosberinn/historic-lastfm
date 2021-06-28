@@ -8,7 +8,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@sentry/integrations": "6.7.2",
+    "@sentry/integrations": "6.8.0",
     "@sentry/node": "6.8.0",
     "@sentry/react": "6.7.2",
     "@sentry/webpack-plugin": "1.15.1",

@@ -1,5 +1,5 @@
 import { captureException } from '@sentry/node';
-import NextDocument, { Html, Main, NextScript, Head } from 'next/document';
+import { Html, Main, NextScript, Head } from 'next/document';
 
 /**
  * Send to Sentry all uncaught exceptions.
@@ -34,6 +34,3 @@ export default function CustomDocument(): JSX.Element {
     </Html>
   );
 }
-
-CustomDocument.renderDocument = NextDocument.renderDocument;
-CustomDocument.getInitialProps = NextDocument.getInitialProps;

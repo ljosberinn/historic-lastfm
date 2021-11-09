@@ -562,6 +562,11 @@
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-6.14.0.tgz#2cf63d0d616109d3a9b99fd27c51e3be1319fa96"
   integrity sha512-7t1YyKO69lLru2WZVGWik6f59qf8J75wSg41Sk5SySvsd7hjcxbj1PWz61/5ndRStvbZmabiVcn76nI2JKyD5A==
 
+"@sentry/types@6.14.1":
+  version "6.14.1"
+  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-6.14.1.tgz#0d562a7aa91253b7843723344b4ba03a010e6376"
+  integrity sha512-RIk3ZwQKZnASrYWfV5i4wbzVveHz8xLFAS2ySIMqh+hICKnB0N4/r8a1Of/84j7pj+iAbf5vPS85639eIf+9qg==
+
 "@sentry/utils@6.14.0":
   version "6.14.0"
   resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-6.14.0.tgz#955c7b3ea0f0f65d68e80aae54ab85d095204262"

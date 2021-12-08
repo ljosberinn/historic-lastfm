@@ -21,7 +21,7 @@
     "react-dom": "18.0.0-beta-96ca8d915-20211115"
   },
   "devDependencies": {
-    "@sentry/types": "6.15.0",
+    "@sentry/types": "6.16.0",
     "@types/node": "16.11.12",
     "@types/react": "17.0.37",
     "eslint": "8.4.1",

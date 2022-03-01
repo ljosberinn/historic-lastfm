@@ -2971,14 +2971,13 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-dom@18.0.0-rc.0:
-  version "18.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.0.0-rc.0.tgz#aa07044bdd6399ff94c664b2985e2e25948fbf3e"
-  integrity sha512-tdD1n0svTndHBQvVAq/f2Kx7FgQ30CpSLp87/neQKAHPW5WtdgW1sBSwmFAcMQOrmstTuP0M+zRlH86f9kMX/A==
+react-dom@18.0.0-rc.1-next-629036a9c-20220224:
+  version "18.0.0-rc.1-next-629036a9c-20220224"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.0.0-rc.1-next-629036a9c-20220224.tgz#0c8ba73856b342de3aedb7ec3ab22932f8a176a0"
+  integrity sha512-zbxKyuJjWhprN3QPHFvajuEHoW9uan/zXKNSQTFSaPY9TQjR/OJhduWP4Cxae2zcutYSIsFYdN9wyOt+JbZo4Q==
   dependencies:
     loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    scheduler "^0.21.0-rc.0"
+    scheduler "0.21.0-rc.1-next-629036a9c-20220224"
 
 react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
@@ -3143,13 +3142,12 @@ safe-regex@^2.1.1:
   dependencies:
     regexp-tree "~0.1.1"
 
-scheduler@^0.21.0-rc.0:
-  version "0.21.0-rc.0-next-f2a59df48-20211208"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.21.0-rc.0-next-f2a59df48-20211208.tgz#54e18e1d360194fd54b47a00616e46403fcabdf1"
-  integrity sha512-x0oLd3YIih9GHqWTaFYejVe6Au+4TadOWZciAq8m4+Fuo5qCi4/3M35a9irVSIP3+qcg/fCqHKJETT9G0ejD1A==
+scheduler@0.21.0-rc.1-next-629036a9c-20220224:
+  version "0.21.0-rc.1-next-629036a9c-20220224"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.21.0-rc.1-next-629036a9c-20220224.tgz#a081c46921671d3640c2741395e619e7ffd8e389"
+  integrity sha512-Grl55vcPB9QtCromIXm+jB/mMNmzsNWHj0Iy4wm6Cw6iAnkbJPBaWsSiZpt9cA8bfzPJ49oiaANWRJ8l/nUyZA==
   dependencies:
     loose-envify "^1.1.0"
-    object-assign "^4.1.1"
 
 "semver@2 || 3 || 4 || 5", semver@^5.5.0:
   version "5.7.1"

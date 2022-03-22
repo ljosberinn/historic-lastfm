@@ -1269,15 +1269,15 @@ colorette@^2.0.16:
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-2.0.16.tgz#713b9af84fdb000139f04546bd4a93f62a5085da"
   integrity sha512-hUewv7oMjCp+wkBv5Rm0v87eJhq4woh5rSR+42YSQJKecCqgIqNkZ6lAlQms/BwHPJA5NKMRlpxPRv0n8HQW6g==
 
-commander@^6.1.0:
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
-  integrity sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==
-
 commander@^8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
   integrity sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==
+
+commander@^9.0.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-9.1.0.tgz#a6b263b2327f2e188c6402c42623327909f2dbec"
+  integrity sha512-i0/MaqBtdbnJ4XQs4Pmyb+oFQl+q0lsAmokVUH92SlSw4fkeAcG3bVon+Qt7hmtF+u3Het6o4VgrcY3qAoEB6w==
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -3688,11 +3688,11 @@ yaml@^1.10.2:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
 
-yarn-deduplicate@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/yarn-deduplicate/-/yarn-deduplicate-3.1.0.tgz#3018d93e95f855f236a215b591fe8bc4bcabba3e"
-  integrity sha512-q2VZ6ThNzQpGfNpkPrkmV7x5HT9MOhCUsTxVTzyyZB0eSXz1NTodHn+r29DlLb+peKk8iXxzdUVhQG9pI7moFw==
+yarn-deduplicate@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/yarn-deduplicate/-/yarn-deduplicate-4.0.0.tgz#0fcd11a83c2629ee41bc38a97d78fbd810c5825f"
+  integrity sha512-1sI617aM8WNplWA7O58peEq3gC14Ah/Ld55CF1aB2v4pTaxDpOgb+mTaWhIKzOCqJjwnaSqmYVrfgABUlc9bNA==
   dependencies:
     "@yarnpkg/lockfile" "^1.1.0"
-    commander "^6.1.0"
+    commander "^9.0.0"
     semver "^7.3.2"

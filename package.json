@@ -8,13 +8,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@sentry/integrations": "6.18.2",
+    "@sentry/integrations": "6.19.2",
     "@sentry/node": "6.19.2",
     "@sentry/react": "6.19.2",
     "@sentry/webpack-plugin": "1.18.8",
     "dayjs": "1.11.0",
     "dotenv-webpack": "7.1.0",
-    "next": "12.1.0",
+    "next": "12.1.1",
     "npm-run-all": "4.1.5",
     "nprogress": "0.2.0",
     "react": "18.0.0-rc.2",
@@ -29,7 +29,7 @@
     "husky": "7.0.4",
     "lint-staged": "12.3.7",
     "prettier": "2.6.0",
-    "typescript": "4.6.2",
+    "typescript": "4.6.3",
     "yarn-deduplicate": "4.0.0"
   },
   "scripts": {

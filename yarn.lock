@@ -612,23 +612,15 @@
     hoist-non-react-statics "^3.3.2"
     tslib "^1.9.3"
 
-"@sentry/types@6.19.3":
-  version "6.19.3"
-  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-6.19.3.tgz#94b19da68d4d23561efb1014f72968bcea85cd0c"
-  integrity sha512-jHhqxp8MIWSfOc3krorirTGKTEaSFO6XrAvi+2AZhr6gvOChwOgzgrN2ZqesJcZmgCsqWV21u3usSwYeRrjOJA==
-
 "@sentry/types@6.19.4":
   version "6.19.4"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-6.19.4.tgz#4e13269daaba2edfeaa4b18a5a14fa8f4d7a85a8"
   integrity sha512-fzLiQPrjJQ8HgFgA2VqnpLiEOrTJ2ItRY8RY7Cn4038HACoYWYDjrkdVJQBq6IyrxxkgWOSLZXnv85uozBQC+g==
 
-"@sentry/utils@6.19.3":
-  version "6.19.3"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-6.19.3.tgz#0c3a3f0b86c12e3b079e56e37a44e62a1226043d"
-  integrity sha512-GdC9B/FK7qd0zItY43135bYbhuVSawE18bIrQDNuno8gTpDJ5OgShpTN9zR53AmMh16/lwKNnV3ZZjlpKcxuNw==
-  dependencies:
-    "@sentry/types" "6.19.3"
-    tslib "^1.9.3"
+"@sentry/types@6.19.5":
+  version "6.19.5"
+  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-6.19.5.tgz#628e76351209a5e4fcaa94bcbe56fe788d65ea15"
+  integrity sha512-G5bGj0ZXRPDrEAxuNO6Jyeq/OG6v9msoE9C/xy1r6JMvVTxX000TmLGKjK1NqqrBbVWdcyFbT3jhJgae0uyBVA==
 
 "@sentry/utils@6.19.4":
   version "6.19.4"
